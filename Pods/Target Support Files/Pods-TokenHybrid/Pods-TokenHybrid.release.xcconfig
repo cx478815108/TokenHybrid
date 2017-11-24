@@ -1,0 +1,11 @@
+EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/ChainableAnimations" "$PODS_CONFIGURATION_BUILD_DIR/KMNavigationBarTransition" "$PODS_CONFIGURATION_BUILD_DIR/MJRefresh" "$PODS_CONFIGURATION_BUILD_DIR/SDWebImage" "$PODS_CONFIGURATION_BUILD_DIR/SVProgressHUD" "$PODS_CONFIGURATION_BUILD_DIR/TBActionSheet" "$PODS_CONFIGURATION_BUILD_DIR/TokenNetworking" "$PODS_CONFIGURATION_BUILD_DIR/UITableView+FDTemplateLayoutCell" "$PODS_CONFIGURATION_BUILD_DIR/Yoga" "$PODS_CONFIGURATION_BUILD_DIR/YogaKit"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/ChainableAnimations/ChainableAnimations.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/KMNavigationBarTransition/KMNavigationBarTransition.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/MJRefresh/MJRefresh.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/SDWebImage/SDWebImage.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/SVProgressHUD/SVProgressHUD.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/TBActionSheet/TBActionSheet.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/TokenNetworking/TokenNetworking.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/UITableView+FDTemplateLayoutCell/UITableView_FDTemplateLayoutCell.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/Yoga/yoga.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/YogaKit/YogaKit.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "ChainableAnimations" -framework "KMNavigationBarTransition" -framework "MJRefresh" -framework "SDWebImage" -framework "SVProgressHUD" -framework "TBActionSheet" -framework "TokenNetworking" -framework "UITableView_FDTemplateLayoutCell" -framework "YogaKit" -framework "yoga"
+OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
+PODS_BUILD_DIR = $BUILD_DIR
+PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods
