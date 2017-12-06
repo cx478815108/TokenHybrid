@@ -12,8 +12,8 @@
 
 工作原理：**TokenHybrid** 解析一个HTML 文本，并根据这个HTML 下载相应的CSS，JS 并且构建原生界面，使用JS交互。
 
-TokenHybrid里面的代码你可以随意修改。
-由于作者水平有限，希望收到你的改进意见，或者PR
+`TokenHybrid` 里面的代码你可以随意修改。作者水平有限，希望能和大家共同进步。希望收到你对这个想法的意见，代码改进建议或者PR
+
 
 ## TokenHybrid 特性
 
@@ -23,7 +23,7 @@ TokenHybrid里面的代码你可以随意修改。
 4. 当HTML 更新的时候，重新打开界面会自动生成新界面！
 
 ## 预览
-以下所有界面，都使用TokenHybrid构建，最后有GIF图
+以下所有界面，都使用TokenHybrid 构建，最后有GIF图
 
 ![](http://ou3yprhbt.bkt.clouddn.com/tokenhybrid.png)
 ![](https://raw.githubusercontent.com/cx478815108/TokenHybrid/master/screenshots/example.gif)
