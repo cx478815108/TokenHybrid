@@ -26,6 +26,7 @@ TokenHybrid里面的代码你可以随意修改。
 以下所有界面，都使用TokenHybrid构建，最后有GIF图
 
 ![](http://ou3yprhbt.bkt.clouddn.com/tokenhybrid.png)
+![](https://raw.githubusercontent.com/cx478815108/TokenHybrid/master/screenshots/example.gif)
 
 
 ------------------------
