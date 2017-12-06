@@ -35,7 +35,8 @@ TokenHybrid里面的代码你可以随意修改。
 
 Clone this project and run in Xcode9
 
-## 安装
+## 使用
+请看Document文件夹
 
 ### 手动安装
 
