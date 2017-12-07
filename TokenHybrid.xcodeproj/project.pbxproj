@@ -15,6 +15,7 @@
 		9B3CD20C1FB53DC500AE516B /* TokenTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CD2061FB53D9900AE516B /* TokenTableCell.m */; };
 		9B3CD20D1FB53DC500AE516B /* TokenTableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CD2081FB53D9900AE516B /* TokenTableComponent.m */; };
 		9B3CD20E1FB53DC500AE516B /* TokenTableSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CD20A1FB53D9900AE516B /* TokenTableSectionView.m */; };
+		9B49F4251FD9672E00234C48 /* TokenUserNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B49F4241FD9672E00234C48 /* TokenUserNotification.m */; };
 		9B69AFB11FB3117D0044AA28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFB01FB3117D0044AA28 /* AppDelegate.m */; };
 		9B69AFB41FB3117D0044AA28 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFB31FB3117D0044AA28 /* ViewController.m */; };
 		9B69AFB71FB3117D0044AA28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B69AFB51FB3117D0044AA28 /* Main.storyboard */; };
@@ -96,6 +97,8 @@
 		9B3CD2081FB53D9900AE516B /* TokenTableComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenTableComponent.m; sourceTree = "<group>"; };
 		9B3CD2091FB53D9900AE516B /* TokenTableSectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenTableSectionView.h; sourceTree = "<group>"; };
 		9B3CD20A1FB53D9900AE516B /* TokenTableSectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenTableSectionView.m; sourceTree = "<group>"; };
+		9B49F4231FD9672E00234C48 /* TokenUserNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenUserNotification.h; sourceTree = "<group>"; };
+		9B49F4241FD9672E00234C48 /* TokenUserNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenUserNotification.m; sourceTree = "<group>"; };
 		9B69AFAC1FB3117D0044AA28 /* TokenHybrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TokenHybrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B69AFAF1FB3117D0044AA28 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9B69AFB01FB3117D0044AA28 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -455,6 +458,8 @@
 				9BD0AE601FB43E0000C362FB /* TokenJSContext.m */,
 				9BD0AE611FB43E0000C362FB /* TokenTool.h */,
 				9BD0AE621FB43E0000C362FB /* TokenTool.m */,
+				9B49F4231FD9672E00234C48 /* TokenUserNotification.h */,
+				9B49F4241FD9672E00234C48 /* TokenUserNotification.m */,
 			);
 			path = JavaScriptSupport;
 			sourceTree = "<group>";
@@ -673,6 +678,7 @@
 				9B69B08F1FB31A1F0044AA28 /* TokenDocument.m in Sources */,
 				9BD0AE901FB43FF000C362FB /* TokenTextAreaComponent.m in Sources */,
 				9BD0AE6D1FB43FC400C362FB /* NSDictionary+chainScript.m in Sources */,
+				9B49F4251FD9672E00234C48 /* TokenUserNotification.m in Sources */,
 				9B69B0901FB31A1F0044AA28 /* TokenXMLNode.m in Sources */,
 				9B69B0911FB31A1F0044AA28 /* TokenCSSParser.m in Sources */,
 				9B69B0921FB31A1F0044AA28 /* TokenXMLParser.m in Sources */,

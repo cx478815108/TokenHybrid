@@ -7,8 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import <UserNotifications/UserNotifications.h>
 
-@interface AppDelegate ()
+@interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
 @end
 
@@ -17,7 +18,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+//    if (@available(iOS 10.0, *)) {
+//        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+//        [center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+//            if (!error) {
+//                NSLog(@"request authorization succeeded!");
+//            }
+//        }];
+//    } else {
+//        // Fallback on earlier versions
+//    }
+    
     return YES;
+}
+
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
+    
+    completionHandler(UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionSound);
+    
 }
 
 
