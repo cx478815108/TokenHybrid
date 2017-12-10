@@ -39,8 +39,14 @@
 }
 
 -(TokenUserDefaultsGetObjectBlock)token_objectForKey {
-    return ^id(NSString *key) {
-        return [self objectForKey:key];
+    return ^id(id JSValueKey) {
+        NSString *key = [NSString stringWithFormat:@"%@", JSValueKey];
+        id obj = [self objectForKey:key];
+        if (![obj isKindOfClass:[NSNull class]] && obj != nil) {
+            return obj;
+        }else {
+            return @"";
+        }
     };
 }
 
