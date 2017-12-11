@@ -194,6 +194,10 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
 -(void)parserDidStart{
     HybridLog(@"parserDidStart");
     _viewStack = [[TokenHybridStack alloc] init];
+    if (_jsContext) {
+        _jsContext[@"document"] = nil;
+        _jsContext = [[TokenJSContext alloc] init];
+    }
 }
 
 -(void)parser:(TokenXMLParser *)parser didStartNodeWithinBodyNode:(TokenXMLNode *)node{

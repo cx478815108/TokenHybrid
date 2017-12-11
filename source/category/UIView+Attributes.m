@@ -19,6 +19,7 @@
 
 @implementation UIView (Attributes)
 -(void)token_updateAppearanceWithCSSAttributes:(NSDictionary *)attributes{
+    if (attributes == nil) { return;}
     [self token_updateAppearanceWithCSSAttributes:attributes shouldLayout:YES];
 }
 
@@ -74,6 +75,7 @@
 }
 
 -(void)token_updateAppearanceWithNormalDictionary:(NSDictionary *)dictionary{
+    if (dictionary == nil) return;
     NSDictionary *d = dictionary;
     if(d[@"borderRadius"]) { self.layer.cornerRadius   = [d[@"borderRadius"] floatValue];}
     if(d[@"zIndex"])       { self.layer.zPosition      = [d[@"zIndex"] floatValue];}
