@@ -77,7 +77,8 @@
     //去掉CSS里面的评论
     NSString *css = cssString.token_replaceWithRegExp(commentRegExp,@"")
                              .token_replace(@"\n",@"")
-                             .token_replace(@"\r",@"");
+                             .token_replace(@"\r",@"")
+                             .token_replace(@"\t",@"");
     int braceMarker = 0;
     NSString *selector;
     NSString *rule;
