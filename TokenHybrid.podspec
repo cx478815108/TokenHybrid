@@ -13,4 +13,11 @@ Pod::Spec.new do |s|
 
   s.source_files = "Source/**/*.{h,m}"
   # s.public_header_files = "Source/TBActionSheet/TBActionButton.h", "Source/TBActionSheet/TBActionSheet.h", "Source/TBAlertController/TBAlertController.h"
+  s.frameworks = 'Foundation', 'UIKit', 'JavaScriptCore'
+  s.dependency "YogaKit"
+  s.dependency "SDWebImage"
+  s.dependency "MJRefresh"
+  s.dependency "UITableView+FDTemplateLayoutCell"
+  s.dependency "TokenNetworking"
+
 end
