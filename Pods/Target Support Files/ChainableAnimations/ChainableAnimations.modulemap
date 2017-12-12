@@ -1,6 +1,0 @@
-framework module ChainableAnimations {
-  umbrella header "ChainableAnimations-umbrella.h"
-
-  export *
-  module * { export * }
-}
