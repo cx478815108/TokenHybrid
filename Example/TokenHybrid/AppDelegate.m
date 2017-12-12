@@ -18,27 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-//    if (@available(iOS 10.0, *)) {
-//        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-//        [center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {
-//            if (!error) {
-//                NSLog(@"request authorization succeeded!");
-//            }
-//        }];
-//    } else {
-//        // Fallback on earlier versions
-//    }
-    
     return YES;
 }
-
--(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
-    
-    completionHandler(UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionSound);
-    
-}
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

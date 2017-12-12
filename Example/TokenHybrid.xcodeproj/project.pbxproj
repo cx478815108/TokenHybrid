@@ -7,15 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9B15C8421FC7B1EB00249B66 /* TokenPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B15C8401FC7B1EB00249B66 /* TokenPageControl.m */; };
-		9B2EB07A1FB3F11F0007FE01 /* NSString+TokenHybrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2EB0791FB3F1160007FE01 /* NSString+TokenHybrid.m */; };
-		9B2EB07D1FB402030007FE01 /* TokenXMLNode+JSExport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2EB07C1FB402030007FE01 /* TokenXMLNode+JSExport.m */; };
-		9B3CD2011FB49B1900AE516B /* TokenHybridRenderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CD2001FB49B1900AE516B /* TokenHybridRenderController.m */; };
-		9B3CD20B1FB53DC500AE516B /* TokenDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CD2041FB53D9900AE516B /* TokenDataItem.m */; };
-		9B3CD20C1FB53DC500AE516B /* TokenTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CD2061FB53D9900AE516B /* TokenTableCell.m */; };
-		9B3CD20D1FB53DC500AE516B /* TokenTableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CD2081FB53D9900AE516B /* TokenTableComponent.m */; };
-		9B3CD20E1FB53DC500AE516B /* TokenTableSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CD20A1FB53D9900AE516B /* TokenTableSectionView.m */; };
-		9B49F4251FD9672E00234C48 /* TokenUserNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B49F4241FD9672E00234C48 /* TokenUserNotification.m */; };
 		9B69AFB11FB3117D0044AA28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFB01FB3117D0044AA28 /* AppDelegate.m */; };
 		9B69AFB41FB3117D0044AA28 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFB31FB3117D0044AA28 /* ViewController.m */; };
 		9B69AFB71FB3117D0044AA28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B69AFB51FB3117D0044AA28 /* Main.storyboard */; };
@@ -23,42 +14,51 @@
 		9B69AFBC1FB3117D0044AA28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B69AFBA1FB3117D0044AA28 /* LaunchScreen.storyboard */; };
 		9B69AFBF1FB3117D0044AA28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFBE1FB3117D0044AA28 /* main.m */; };
 		9B69AFC91FB3117D0044AA28 /* TokenHybridTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFC81FB3117D0044AA28 /* TokenHybridTests.m */; };
-		9B69B0711FB31A1F0044AA28 /* Collection+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFD71FB312DD0044AA28 /* Collection+Token.m */; };
-		9B69B0721FB31A1F0044AA28 /* NSString+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFD91FB312DD0044AA28 /* NSString+Token.m */; };
-		9B69B0731FB31A1F0044AA28 /* NSUserDefaults+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFDB1FB312DD0044AA28 /* NSUserDefaults+Token.m */; };
-		9B69B0741FB31A1F0044AA28 /* UIColor+SSRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFDE1FB312DD0044AA28 /* UIColor+SSRender.m */; };
-		9B69B0751FB31A1F0044AA28 /* UIColor+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFE01FB312DD0044AA28 /* UIColor+Token.m */; };
-		9B69B0761FB31A1F0044AA28 /* UIView+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFE21FB312DD0044AA28 /* UIView+Token.m */; };
-		9B69B0771FB31A1F0044AA28 /* UIViewController+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFE41FB312DD0044AA28 /* UIViewController+Token.m */; };
-		9B69B08F1FB31A1F0044AA28 /* TokenDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFFB1FB314BD0044AA28 /* TokenDocument.m */; };
-		9B69B0901FB31A1F0044AA28 /* TokenXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFFD1FB314BD0044AA28 /* TokenXMLNode.m */; };
-		9B69B0911FB31A1F0044AA28 /* TokenCSSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFE91FB3134D0044AA28 /* TokenCSSParser.m */; };
-		9B69B0921FB31A1F0044AA28 /* TokenXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFE71FB3134D0044AA28 /* TokenXMLParser.m */; };
-		9B69B0941FB31A1F0044AA28 /* TokenHybridConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69B04C1FB318960044AA28 /* TokenHybridConstant.m */; };
-		9B69B0951FB31A1F0044AA28 /* TokenNodeComponentRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69B0041FB3183F0044AA28 /* TokenNodeComponentRegister.m */; };
-		9B69B0961FB31A1F0044AA28 /* TokenHybridStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69B0001FB316EC0044AA28 /* TokenHybridStack.m */; };
-		9B69B0971FB31A1F0044AA28 /* TokenHybridOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFF41FB313D40044AA28 /* TokenHybridOrganizer.m */; };
-		9B69B0981FB31A1F0044AA28 /* TokenViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFF71FB314480044AA28 /* TokenViewBuilder.m */; };
-		9B7E77B51FB5BA8D00B091BD /* TokenComponent+pullRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E77B41FB5BA8D00B091BD /* TokenComponent+pullRefresh.m */; };
-		9B7F64DE1FB4493E009F0889 /* TokenBase.js in Resources */ = {isa = PBXBuildFile; fileRef = 9BD0AE5E1FB43E0000C362FB /* TokenBase.js */; };
-		9B7F64E11FB44E70009F0889 /* TokenPureComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7F64E01FB44E70009F0889 /* TokenPureComponent.m */; };
-		9BD0AE581FB427A600C362FB /* UIView+TokenFlexLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0AE571FB427A600C362FB /* UIView+TokenFlexLayout.m */; };
-		9BD0AE5B1FB42E9C00C362FB /* UIView+Attributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0AE5A1FB42E9C00C362FB /* UIView+Attributes.m */; };
-		9BD0AE651FB43E5600C362FB /* JSValue+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0AE641FB43E5600C362FB /* JSValue+Token.m */; };
-		9BD0AE661FB43E6100C362FB /* TokenJSContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0AE601FB43E0000C362FB /* TokenJSContext.m */; };
-		9BD0AE671FB43E6100C362FB /* TokenTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0AE621FB43E0000C362FB /* TokenTool.m */; };
-		9BD0AE6A1FB43E7F00C362FB /* TokenPickerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0AE681FB43E7F00C362FB /* TokenPickerComponent.m */; };
-		9BD0AE6D1FB43FC400C362FB /* NSDictionary+chainScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0AE6B1FB43FC300C362FB /* NSDictionary+chainScript.m */; };
-		9BD0AE861FB43FEF00C362FB /* TokenWebViewComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0AE6E1FB43FEC00C362FB /* TokenWebViewComponent.m */; };
-		9BD0AE871FB43FEF00C362FB /* TokenScrollComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0AE6F1FB43FED00C362FB /* TokenScrollComponent.m */; };
-		9BD0AE881FB43FEF00C362FB /* TokenSegmentedComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0AE711FB43FED00C362FB /* TokenSegmentedComponent.m */; };
-		9BD0AE891FB43FEF00C362FB /* TokenButtonComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0AE741FB43FED00C362FB /* TokenButtonComponent.m */; };
-		9BD0AE8A1FB43FEF00C362FB /* TokenLabelComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0AE751FB43FED00C362FB /* TokenLabelComponent.m */; };
-		9BD0AE8B1FB43FEF00C362FB /* TokenSearchBarComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0AE761FB43FED00C362FB /* TokenSearchBarComponent.m */; };
-		9BD0AE8D1FB43FEF00C362FB /* TokenImageComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0AE791FB43FEE00C362FB /* TokenImageComponent.m */; };
-		9BD0AE8E1FB43FEF00C362FB /* TokenInputComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0AE7B1FB43FEE00C362FB /* TokenInputComponent.m */; };
-		9BD0AE8F1FB43FF000C362FB /* TokenSwitchComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0AE821FB43FEF00C362FB /* TokenSwitchComponent.m */; };
-		9BD0AE901FB43FF000C362FB /* TokenTextAreaComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD0AE831FB43FEF00C362FB /* TokenTextAreaComponent.m */; };
+		9B7129D41FDFCC17004BB573 /* UIColor+SSRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129721FDFCC0C004BB573 /* UIColor+SSRender.m */; };
+		9B7129D51FDFCC17004BB573 /* NSUserDefaults+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129731FDFCC0C004BB573 /* NSUserDefaults+Token.m */; };
+		9B7129D61FDFCC17004BB573 /* UIViewController+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129751FDFCC0C004BB573 /* UIViewController+Token.m */; };
+		9B7129D71FDFCC17004BB573 /* NSString+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129761FDFCC0C004BB573 /* NSString+Token.m */; };
+		9B7129D81FDFCC17004BB573 /* UIColor+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129781FDFCC0C004BB573 /* UIColor+Token.m */; };
+		9B7129D91FDFCC17004BB573 /* UIView+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B71297C1FDFCC0C004BB573 /* UIView+Token.m */; };
+		9B7129DA1FDFCC17004BB573 /* Collection+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B71297E1FDFCC0C004BB573 /* Collection+Token.m */; };
+		9B7129DB1FDFCC17004BB573 /* TokenXMLNode+JSExport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129821FDFCC0C004BB573 /* TokenXMLNode+JSExport.m */; };
+		9B7129DC1FDFCC17004BB573 /* TokenComponent+pullRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129831FDFCC0C004BB573 /* TokenComponent+pullRefresh.m */; };
+		9B7129DD1FDFCC17004BB573 /* JSValue+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129841FDFCC0C004BB573 /* JSValue+Token.m */; };
+		9B7129DE1FDFCC17004BB573 /* NSDictionary+chainScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129871FDFCC0C004BB573 /* NSDictionary+chainScript.m */; };
+		9B7129DF1FDFCC17004BB573 /* UIView+TokenFlexLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B71298B1FDFCC0C004BB573 /* UIView+TokenFlexLayout.m */; };
+		9B7129E01FDFCC17004BB573 /* UIView+Attributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B71298C1FDFCC0C004BB573 /* UIView+Attributes.m */; };
+		9B7129E11FDFCC17004BB573 /* NSString+TokenHybrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B71298D1FDFCC0C004BB573 /* NSString+TokenHybrid.m */; };
+		9B7129E21FDFCC17004BB573 /* TokenJSContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129901FDFCC0C004BB573 /* TokenJSContext.m */; };
+		9B7129E41FDFCC17004BB573 /* TokenTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129941FDFCC0C004BB573 /* TokenTool.m */; };
+		9B7129E51FDFCC17004BB573 /* TokenTableSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B71299C1FDFCC0C004BB573 /* TokenTableSectionView.m */; };
+		9B7129E61FDFCC17004BB573 /* TokenDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B71299D1FDFCC0C004BB573 /* TokenDataItem.m */; };
+		9B7129E71FDFCC17004BB573 /* TokenTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B71299E1FDFCC0C004BB573 /* TokenTableCell.m */; };
+		9B7129E81FDFCC17004BB573 /* TokenTableComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129A31FDFCC0C004BB573 /* TokenTableComponent.m */; };
+		9B7129E91FDFCC17004BB573 /* TokenTextAreaComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129A51FDFCC0C004BB573 /* TokenTextAreaComponent.m */; };
+		9B7129EA1FDFCC17004BB573 /* TokenScrollComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129A71FDFCC0C004BB573 /* TokenScrollComponent.m */; };
+		9B7129EB1FDFCC17004BB573 /* TokenSegmentedComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129A81FDFCC0C004BB573 /* TokenSegmentedComponent.m */; };
+		9B7129EC1FDFCC17004BB573 /* TokenPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129A91FDFCC0C004BB573 /* TokenPageControl.m */; };
+		9B7129ED1FDFCC17004BB573 /* TokenPickerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129AB1FDFCC0C004BB573 /* TokenPickerComponent.m */; };
+		9B7129EE1FDFCC17004BB573 /* TokenWebViewComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129AE1FDFCC0C004BB573 /* TokenWebViewComponent.m */; };
+		9B7129EF1FDFCC17004BB573 /* TokenButtonComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129AF1FDFCC0C004BB573 /* TokenButtonComponent.m */; };
+		9B7129F01FDFCC17004BB573 /* TokenImageComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129B11FDFCC0C004BB573 /* TokenImageComponent.m */; };
+		9B7129F11FDFCC17004BB573 /* TokenHybridRenderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129B21FDFCC0C004BB573 /* TokenHybridRenderController.m */; };
+		9B7129F21FDFCC17004BB573 /* TokenSwitchComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129B51FDFCC0C004BB573 /* TokenSwitchComponent.m */; };
+		9B7129F31FDFCC17004BB573 /* TokenLabelComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129B61FDFCC0C004BB573 /* TokenLabelComponent.m */; };
+		9B7129F41FDFCC17004BB573 /* TokenInputComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129BA1FDFCC0C004BB573 /* TokenInputComponent.m */; };
+		9B7129F51FDFCC17004BB573 /* TokenPureComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129BB1FDFCC0C004BB573 /* TokenPureComponent.m */; };
+		9B7129F61FDFCC17004BB573 /* TokenSearchBarComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129BE1FDFCC0C004BB573 /* TokenSearchBarComponent.m */; };
+		9B7129F71FDFCC17004BB573 /* TokenXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129C11FDFCC0C004BB573 /* TokenXMLParser.m */; };
+		9B7129F81FDFCC17004BB573 /* TokenCSSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129C21FDFCC0C004BB573 /* TokenCSSParser.m */; };
+		9B7129F91FDFCC17004BB573 /* TokenXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129C51FDFCC0C004BB573 /* TokenXMLNode.m */; };
+		9B7129FA1FDFCC17004BB573 /* TokenDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129C81FDFCC0C004BB573 /* TokenDocument.m */; };
+		9B7129FB1FDFCC17004BB573 /* TokenViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129CC1FDFCC0C004BB573 /* TokenViewBuilder.m */; };
+		9B7129FC1FDFCC17004BB573 /* TokenHybridStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129CD1FDFCC0C004BB573 /* TokenHybridStack.m */; };
+		9B7129FD1FDFCC17004BB573 /* TokenNodeComponentRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129CE1FDFCC0C004BB573 /* TokenNodeComponentRegister.m */; };
+		9B7129FE1FDFCC17004BB573 /* TokenHybridOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129CF1FDFCC0C004BB573 /* TokenHybridOrganizer.m */; };
+		9B7129FF1FDFCC17004BB573 /* TokenHybridConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129D31FDFCC0C004BB573 /* TokenHybridConstant.m */; };
+		9B712A001FDFCC23004BB573 /* TokenBase.js in Resources */ = {isa = PBXBuildFile; fileRef = 9B7129971FDFCC0C004BB573 /* TokenBase.js */; };
+		9B712A031FDFD28C004BB573 /* TokenHybridRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B712A021FDFD28C004BB573 /* TokenHybridRenderView.m */; };
 		EF9C24C8E23C7CD9511D6D58 /* Pods_TokenHybrid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2097151F60668847B9E02042 /* Pods_TokenHybrid.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,24 +75,6 @@
 /* Begin PBXFileReference section */
 		2097151F60668847B9E02042 /* Pods_TokenHybrid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TokenHybrid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67A344AA5B0106750828224A /* Pods-TokenHybrid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokenHybrid.release.xcconfig"; path = "Pods/Target Support Files/Pods-TokenHybrid/Pods-TokenHybrid.release.xcconfig"; sourceTree = "<group>"; };
-		9B15C8401FC7B1EB00249B66 /* TokenPageControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenPageControl.m; sourceTree = "<group>"; };
-		9B15C8411FC7B1EB00249B66 /* TokenPageControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenPageControl.h; sourceTree = "<group>"; };
-		9B2EB0781FB3F1160007FE01 /* NSString+TokenHybrid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+TokenHybrid.h"; sourceTree = "<group>"; };
-		9B2EB0791FB3F1160007FE01 /* NSString+TokenHybrid.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+TokenHybrid.m"; sourceTree = "<group>"; };
-		9B2EB07B1FB402030007FE01 /* TokenXMLNode+JSExport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TokenXMLNode+JSExport.h"; sourceTree = "<group>"; };
-		9B2EB07C1FB402030007FE01 /* TokenXMLNode+JSExport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TokenXMLNode+JSExport.m"; sourceTree = "<group>"; };
-		9B3CD1FF1FB49B1900AE516B /* TokenHybridRenderController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenHybridRenderController.h; sourceTree = "<group>"; };
-		9B3CD2001FB49B1900AE516B /* TokenHybridRenderController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenHybridRenderController.m; sourceTree = "<group>"; };
-		9B3CD2031FB53D9900AE516B /* TokenDataItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenDataItem.h; sourceTree = "<group>"; };
-		9B3CD2041FB53D9900AE516B /* TokenDataItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenDataItem.m; sourceTree = "<group>"; };
-		9B3CD2051FB53D9900AE516B /* TokenTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenTableCell.h; sourceTree = "<group>"; };
-		9B3CD2061FB53D9900AE516B /* TokenTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenTableCell.m; sourceTree = "<group>"; };
-		9B3CD2071FB53D9900AE516B /* TokenTableComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenTableComponent.h; sourceTree = "<group>"; };
-		9B3CD2081FB53D9900AE516B /* TokenTableComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenTableComponent.m; sourceTree = "<group>"; };
-		9B3CD2091FB53D9900AE516B /* TokenTableSectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenTableSectionView.h; sourceTree = "<group>"; };
-		9B3CD20A1FB53D9900AE516B /* TokenTableSectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenTableSectionView.m; sourceTree = "<group>"; };
-		9B49F4231FD9672E00234C48 /* TokenUserNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenUserNotification.h; sourceTree = "<group>"; };
-		9B49F4241FD9672E00234C48 /* TokenUserNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenUserNotification.m; sourceTree = "<group>"; };
 		9B69AFAC1FB3117D0044AA28 /* TokenHybrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TokenHybrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B69AFAF1FB3117D0044AA28 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9B69AFB01FB3117D0044AA28 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -106,79 +88,97 @@
 		9B69AFC41FB3117D0044AA28 /* TokenHybridTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TokenHybridTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B69AFC81FB3117D0044AA28 /* TokenHybridTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenHybridTests.m; sourceTree = "<group>"; };
 		9B69AFCA1FB3117D0044AA28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9B69AFD61FB312DD0044AA28 /* Collection+Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Collection+Token.h"; sourceTree = "<group>"; };
-		9B69AFD71FB312DD0044AA28 /* Collection+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Collection+Token.m"; sourceTree = "<group>"; };
-		9B69AFD81FB312DD0044AA28 /* NSString+Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Token.h"; sourceTree = "<group>"; };
-		9B69AFD91FB312DD0044AA28 /* NSString+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Token.m"; sourceTree = "<group>"; };
-		9B69AFDA1FB312DD0044AA28 /* NSUserDefaults+Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Token.h"; sourceTree = "<group>"; };
-		9B69AFDB1FB312DD0044AA28 /* NSUserDefaults+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Token.m"; sourceTree = "<group>"; };
-		9B69AFDC1FB312DD0044AA28 /* TokenExtensionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenExtensionHeader.h; sourceTree = "<group>"; };
-		9B69AFDD1FB312DD0044AA28 /* UIColor+SSRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+SSRender.h"; sourceTree = "<group>"; };
-		9B69AFDE1FB312DD0044AA28 /* UIColor+SSRender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SSRender.m"; sourceTree = "<group>"; };
-		9B69AFDF1FB312DD0044AA28 /* UIColor+Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Token.h"; sourceTree = "<group>"; };
-		9B69AFE01FB312DD0044AA28 /* UIColor+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Token.m"; sourceTree = "<group>"; };
-		9B69AFE11FB312DD0044AA28 /* UIView+Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Token.h"; sourceTree = "<group>"; };
-		9B69AFE21FB312DD0044AA28 /* UIView+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Token.m"; sourceTree = "<group>"; };
-		9B69AFE31FB312DD0044AA28 /* UIViewController+Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Token.h"; sourceTree = "<group>"; };
-		9B69AFE41FB312DD0044AA28 /* UIViewController+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Token.m"; sourceTree = "<group>"; };
-		9B69AFE61FB3134D0044AA28 /* TokenXMLParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenXMLParser.h; sourceTree = "<group>"; };
-		9B69AFE71FB3134D0044AA28 /* TokenXMLParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenXMLParser.m; sourceTree = "<group>"; };
-		9B69AFE81FB3134D0044AA28 /* TokenCSSParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenCSSParser.h; sourceTree = "<group>"; };
-		9B69AFE91FB3134D0044AA28 /* TokenCSSParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenCSSParser.m; sourceTree = "<group>"; };
-		9B69AFF31FB313D40044AA28 /* TokenHybridOrganizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenHybridOrganizer.h; sourceTree = "<group>"; };
-		9B69AFF41FB313D40044AA28 /* TokenHybridOrganizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenHybridOrganizer.m; sourceTree = "<group>"; };
-		9B69AFF61FB314480044AA28 /* TokenViewBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenViewBuilder.h; sourceTree = "<group>"; };
-		9B69AFF71FB314480044AA28 /* TokenViewBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenViewBuilder.m; sourceTree = "<group>"; };
-		9B69AFFA1FB314BD0044AA28 /* TokenDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenDocument.h; sourceTree = "<group>"; };
-		9B69AFFB1FB314BD0044AA28 /* TokenDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenDocument.m; sourceTree = "<group>"; };
-		9B69AFFC1FB314BD0044AA28 /* TokenXMLNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenXMLNode.h; sourceTree = "<group>"; };
-		9B69AFFD1FB314BD0044AA28 /* TokenXMLNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenXMLNode.m; sourceTree = "<group>"; };
-		9B69AFFE1FB315640044AA28 /* TokenHybridDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenHybridDefine.h; sourceTree = "<group>"; };
-		9B69AFFF1FB316EC0044AA28 /* TokenHybridStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenHybridStack.h; sourceTree = "<group>"; };
-		9B69B0001FB316EC0044AA28 /* TokenHybridStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenHybridStack.m; sourceTree = "<group>"; };
-		9B69B0041FB3183F0044AA28 /* TokenNodeComponentRegister.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenNodeComponentRegister.m; sourceTree = "<group>"; };
-		9B69B0051FB3183F0044AA28 /* TokenNodeComponentRegister.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenNodeComponentRegister.h; sourceTree = "<group>"; };
-		9B69B04C1FB318960044AA28 /* TokenHybridConstant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenHybridConstant.m; sourceTree = "<group>"; };
-		9B69B04D1FB318970044AA28 /* TokenHybridConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenHybridConstant.h; sourceTree = "<group>"; };
-		9B7E77B31FB5BA8D00B091BD /* TokenComponent+pullRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TokenComponent+pullRefresh.h"; sourceTree = "<group>"; };
-		9B7E77B41FB5BA8D00B091BD /* TokenComponent+pullRefresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TokenComponent+pullRefresh.m"; sourceTree = "<group>"; };
-		9B7F64DF1FB44E6F009F0889 /* TokenPureComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenPureComponent.h; sourceTree = "<group>"; };
-		9B7F64E01FB44E70009F0889 /* TokenPureComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenPureComponent.m; sourceTree = "<group>"; };
-		9BD0AE561FB427A600C362FB /* UIView+TokenFlexLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+TokenFlexLayout.h"; sourceTree = "<group>"; };
-		9BD0AE571FB427A600C362FB /* UIView+TokenFlexLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+TokenFlexLayout.m"; sourceTree = "<group>"; };
-		9BD0AE591FB42E9C00C362FB /* UIView+Attributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Attributes.h"; sourceTree = "<group>"; };
-		9BD0AE5A1FB42E9C00C362FB /* UIView+Attributes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Attributes.m"; sourceTree = "<group>"; };
-		9BD0AE5E1FB43E0000C362FB /* TokenBase.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = TokenBase.js; sourceTree = "<group>"; };
-		9BD0AE5F1FB43E0000C362FB /* TokenJSContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenJSContext.h; sourceTree = "<group>"; };
-		9BD0AE601FB43E0000C362FB /* TokenJSContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenJSContext.m; sourceTree = "<group>"; };
-		9BD0AE611FB43E0000C362FB /* TokenTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenTool.h; sourceTree = "<group>"; };
-		9BD0AE621FB43E0000C362FB /* TokenTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenTool.m; sourceTree = "<group>"; };
-		9BD0AE631FB43E5600C362FB /* JSValue+Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JSValue+Token.h"; sourceTree = "<group>"; };
-		9BD0AE641FB43E5600C362FB /* JSValue+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "JSValue+Token.m"; sourceTree = "<group>"; };
-		9BD0AE681FB43E7F00C362FB /* TokenPickerComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenPickerComponent.m; sourceTree = "<group>"; };
-		9BD0AE691FB43E7F00C362FB /* TokenPickerComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenPickerComponent.h; sourceTree = "<group>"; };
-		9BD0AE6B1FB43FC300C362FB /* NSDictionary+chainScript.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+chainScript.m"; sourceTree = "<group>"; };
-		9BD0AE6C1FB43FC400C362FB /* NSDictionary+chainScript.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+chainScript.h"; sourceTree = "<group>"; };
-		9BD0AE6E1FB43FEC00C362FB /* TokenWebViewComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenWebViewComponent.m; sourceTree = "<group>"; };
-		9BD0AE6F1FB43FED00C362FB /* TokenScrollComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenScrollComponent.m; sourceTree = "<group>"; };
-		9BD0AE701FB43FED00C362FB /* TokenImageComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenImageComponent.h; sourceTree = "<group>"; };
-		9BD0AE711FB43FED00C362FB /* TokenSegmentedComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenSegmentedComponent.m; sourceTree = "<group>"; };
-		9BD0AE721FB43FED00C362FB /* TokenTextAreaComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenTextAreaComponent.h; sourceTree = "<group>"; };
-		9BD0AE731FB43FED00C362FB /* TokenInputComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenInputComponent.h; sourceTree = "<group>"; };
-		9BD0AE741FB43FED00C362FB /* TokenButtonComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenButtonComponent.m; sourceTree = "<group>"; };
-		9BD0AE751FB43FED00C362FB /* TokenLabelComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenLabelComponent.m; sourceTree = "<group>"; };
-		9BD0AE761FB43FED00C362FB /* TokenSearchBarComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenSearchBarComponent.m; sourceTree = "<group>"; };
-		9BD0AE791FB43FEE00C362FB /* TokenImageComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenImageComponent.m; sourceTree = "<group>"; };
-		9BD0AE7B1FB43FEE00C362FB /* TokenInputComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenInputComponent.m; sourceTree = "<group>"; };
-		9BD0AE7C1FB43FEE00C362FB /* TokenScrollComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenScrollComponent.h; sourceTree = "<group>"; };
-		9BD0AE7D1FB43FEE00C362FB /* TokenSearchBarComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenSearchBarComponent.h; sourceTree = "<group>"; };
-		9BD0AE7E1FB43FEE00C362FB /* TokenSegmentedComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenSegmentedComponent.h; sourceTree = "<group>"; };
-		9BD0AE7F1FB43FEE00C362FB /* TokenSwitchComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenSwitchComponent.h; sourceTree = "<group>"; };
-		9BD0AE801FB43FEE00C362FB /* TokenButtonComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenButtonComponent.h; sourceTree = "<group>"; };
-		9BD0AE811FB43FEF00C362FB /* TokenLabelComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenLabelComponent.h; sourceTree = "<group>"; };
-		9BD0AE821FB43FEF00C362FB /* TokenSwitchComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenSwitchComponent.m; sourceTree = "<group>"; };
-		9BD0AE831FB43FEF00C362FB /* TokenTextAreaComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenTextAreaComponent.m; sourceTree = "<group>"; };
-		9BD0AE841FB43FEF00C362FB /* TokenWebViewComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenWebViewComponent.h; sourceTree = "<group>"; };
+		9B7129711FDFCC0C004BB573 /* UIColor+Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Token.h"; sourceTree = "<group>"; };
+		9B7129721FDFCC0C004BB573 /* UIColor+SSRender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SSRender.m"; sourceTree = "<group>"; };
+		9B7129731FDFCC0C004BB573 /* NSUserDefaults+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Token.m"; sourceTree = "<group>"; };
+		9B7129741FDFCC0C004BB573 /* UIView+Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Token.h"; sourceTree = "<group>"; };
+		9B7129751FDFCC0C004BB573 /* UIViewController+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Token.m"; sourceTree = "<group>"; };
+		9B7129761FDFCC0C004BB573 /* NSString+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Token.m"; sourceTree = "<group>"; };
+		9B7129771FDFCC0C004BB573 /* Collection+Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Collection+Token.h"; sourceTree = "<group>"; };
+		9B7129781FDFCC0C004BB573 /* UIColor+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Token.m"; sourceTree = "<group>"; };
+		9B7129791FDFCC0C004BB573 /* TokenExtensionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenExtensionHeader.h; sourceTree = "<group>"; };
+		9B71297A1FDFCC0C004BB573 /* NSUserDefaults+Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Token.h"; sourceTree = "<group>"; };
+		9B71297B1FDFCC0C004BB573 /* UIColor+SSRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+SSRender.h"; sourceTree = "<group>"; };
+		9B71297C1FDFCC0C004BB573 /* UIView+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Token.m"; sourceTree = "<group>"; };
+		9B71297D1FDFCC0C004BB573 /* NSString+Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Token.h"; sourceTree = "<group>"; };
+		9B71297E1FDFCC0C004BB573 /* Collection+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Collection+Token.m"; sourceTree = "<group>"; };
+		9B71297F1FDFCC0C004BB573 /* UIViewController+Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Token.h"; sourceTree = "<group>"; };
+		9B7129811FDFCC0C004BB573 /* UIView+TokenFlexLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+TokenFlexLayout.h"; sourceTree = "<group>"; };
+		9B7129821FDFCC0C004BB573 /* TokenXMLNode+JSExport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TokenXMLNode+JSExport.m"; sourceTree = "<group>"; };
+		9B7129831FDFCC0C004BB573 /* TokenComponent+pullRefresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TokenComponent+pullRefresh.m"; sourceTree = "<group>"; };
+		9B7129841FDFCC0C004BB573 /* JSValue+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "JSValue+Token.m"; sourceTree = "<group>"; };
+		9B7129851FDFCC0C004BB573 /* UIView+Attributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Attributes.h"; sourceTree = "<group>"; };
+		9B7129861FDFCC0C004BB573 /* NSString+TokenHybrid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+TokenHybrid.h"; sourceTree = "<group>"; };
+		9B7129871FDFCC0C004BB573 /* NSDictionary+chainScript.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+chainScript.m"; sourceTree = "<group>"; };
+		9B7129881FDFCC0C004BB573 /* JSValue+Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JSValue+Token.h"; sourceTree = "<group>"; };
+		9B7129891FDFCC0C004BB573 /* TokenComponent+pullRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TokenComponent+pullRefresh.h"; sourceTree = "<group>"; };
+		9B71298A1FDFCC0C004BB573 /* TokenXMLNode+JSExport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TokenXMLNode+JSExport.h"; sourceTree = "<group>"; };
+		9B71298B1FDFCC0C004BB573 /* UIView+TokenFlexLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+TokenFlexLayout.m"; sourceTree = "<group>"; };
+		9B71298C1FDFCC0C004BB573 /* UIView+Attributes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Attributes.m"; sourceTree = "<group>"; };
+		9B71298D1FDFCC0C004BB573 /* NSString+TokenHybrid.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+TokenHybrid.m"; sourceTree = "<group>"; };
+		9B71298E1FDFCC0C004BB573 /* NSDictionary+chainScript.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+chainScript.h"; sourceTree = "<group>"; };
+		9B7129901FDFCC0C004BB573 /* TokenJSContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenJSContext.m; sourceTree = "<group>"; };
+		9B7129911FDFCC0C004BB573 /* TokenTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenTool.h; sourceTree = "<group>"; };
+		9B7129921FDFCC0C004BB573 /* TokenHybridDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenHybridDefine.h; sourceTree = "<group>"; };
+		9B7129941FDFCC0C004BB573 /* TokenTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenTool.m; sourceTree = "<group>"; };
+		9B7129951FDFCC0C004BB573 /* TokenJSContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenJSContext.h; sourceTree = "<group>"; };
+		9B7129971FDFCC0C004BB573 /* TokenBase.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = TokenBase.js; sourceTree = "<group>"; };
+		9B71299A1FDFCC0C004BB573 /* TokenHybridRenderController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenHybridRenderController.h; sourceTree = "<group>"; };
+		9B71299C1FDFCC0C004BB573 /* TokenTableSectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenTableSectionView.m; sourceTree = "<group>"; };
+		9B71299D1FDFCC0C004BB573 /* TokenDataItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenDataItem.m; sourceTree = "<group>"; };
+		9B71299E1FDFCC0C004BB573 /* TokenTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenTableCell.m; sourceTree = "<group>"; };
+		9B71299F1FDFCC0C004BB573 /* TokenTableComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenTableComponent.h; sourceTree = "<group>"; };
+		9B7129A01FDFCC0C004BB573 /* TokenDataItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenDataItem.h; sourceTree = "<group>"; };
+		9B7129A11FDFCC0C004BB573 /* TokenTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenTableCell.h; sourceTree = "<group>"; };
+		9B7129A21FDFCC0C004BB573 /* TokenTableSectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenTableSectionView.h; sourceTree = "<group>"; };
+		9B7129A31FDFCC0C004BB573 /* TokenTableComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenTableComponent.m; sourceTree = "<group>"; };
+		9B7129A41FDFCC0C004BB573 /* TokenImageComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenImageComponent.h; sourceTree = "<group>"; };
+		9B7129A51FDFCC0C004BB573 /* TokenTextAreaComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenTextAreaComponent.m; sourceTree = "<group>"; };
+		9B7129A61FDFCC0C004BB573 /* TokenInputComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenInputComponent.h; sourceTree = "<group>"; };
+		9B7129A71FDFCC0C004BB573 /* TokenScrollComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenScrollComponent.m; sourceTree = "<group>"; };
+		9B7129A81FDFCC0C004BB573 /* TokenSegmentedComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenSegmentedComponent.m; sourceTree = "<group>"; };
+		9B7129A91FDFCC0C004BB573 /* TokenPageControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenPageControl.m; sourceTree = "<group>"; };
+		9B7129AA1FDFCC0C004BB573 /* TokenLabelComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenLabelComponent.h; sourceTree = "<group>"; };
+		9B7129AB1FDFCC0C004BB573 /* TokenPickerComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenPickerComponent.m; sourceTree = "<group>"; };
+		9B7129AC1FDFCC0C004BB573 /* TokenSwitchComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenSwitchComponent.h; sourceTree = "<group>"; };
+		9B7129AD1FDFCC0C004BB573 /* TokenSearchBarComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenSearchBarComponent.h; sourceTree = "<group>"; };
+		9B7129AE1FDFCC0C004BB573 /* TokenWebViewComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenWebViewComponent.m; sourceTree = "<group>"; };
+		9B7129AF1FDFCC0C004BB573 /* TokenButtonComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenButtonComponent.m; sourceTree = "<group>"; };
+		9B7129B01FDFCC0C004BB573 /* TokenPureComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenPureComponent.h; sourceTree = "<group>"; };
+		9B7129B11FDFCC0C004BB573 /* TokenImageComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenImageComponent.m; sourceTree = "<group>"; };
+		9B7129B21FDFCC0C004BB573 /* TokenHybridRenderController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenHybridRenderController.m; sourceTree = "<group>"; };
+		9B7129B31FDFCC0C004BB573 /* TokenTextAreaComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenTextAreaComponent.h; sourceTree = "<group>"; };
+		9B7129B41FDFCC0C004BB573 /* TokenPickerComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenPickerComponent.h; sourceTree = "<group>"; };
+		9B7129B51FDFCC0C004BB573 /* TokenSwitchComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenSwitchComponent.m; sourceTree = "<group>"; };
+		9B7129B61FDFCC0C004BB573 /* TokenLabelComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenLabelComponent.m; sourceTree = "<group>"; };
+		9B7129B71FDFCC0C004BB573 /* TokenPageControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenPageControl.h; sourceTree = "<group>"; };
+		9B7129B81FDFCC0C004BB573 /* TokenSegmentedComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenSegmentedComponent.h; sourceTree = "<group>"; };
+		9B7129B91FDFCC0C004BB573 /* TokenScrollComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenScrollComponent.h; sourceTree = "<group>"; };
+		9B7129BA1FDFCC0C004BB573 /* TokenInputComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenInputComponent.m; sourceTree = "<group>"; };
+		9B7129BB1FDFCC0C004BB573 /* TokenPureComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenPureComponent.m; sourceTree = "<group>"; };
+		9B7129BC1FDFCC0C004BB573 /* TokenWebViewComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenWebViewComponent.h; sourceTree = "<group>"; };
+		9B7129BD1FDFCC0C004BB573 /* TokenButtonComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenButtonComponent.h; sourceTree = "<group>"; };
+		9B7129BE1FDFCC0C004BB573 /* TokenSearchBarComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenSearchBarComponent.m; sourceTree = "<group>"; };
+		9B7129C01FDFCC0C004BB573 /* TokenCSSParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenCSSParser.h; sourceTree = "<group>"; };
+		9B7129C11FDFCC0C004BB573 /* TokenXMLParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenXMLParser.m; sourceTree = "<group>"; };
+		9B7129C21FDFCC0C004BB573 /* TokenCSSParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenCSSParser.m; sourceTree = "<group>"; };
+		9B7129C31FDFCC0C004BB573 /* TokenXMLParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenXMLParser.h; sourceTree = "<group>"; };
+		9B7129C51FDFCC0C004BB573 /* TokenXMLNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenXMLNode.m; sourceTree = "<group>"; };
+		9B7129C61FDFCC0C004BB573 /* TokenDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenDocument.h; sourceTree = "<group>"; };
+		9B7129C71FDFCC0C004BB573 /* TokenXMLNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenXMLNode.h; sourceTree = "<group>"; };
+		9B7129C81FDFCC0C004BB573 /* TokenDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenDocument.m; sourceTree = "<group>"; };
+		9B7129CA1FDFCC0C004BB573 /* TokenHybridOrganizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenHybridOrganizer.h; sourceTree = "<group>"; };
+		9B7129CB1FDFCC0C004BB573 /* TokenHybridConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenHybridConstant.h; sourceTree = "<group>"; };
+		9B7129CC1FDFCC0C004BB573 /* TokenViewBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenViewBuilder.m; sourceTree = "<group>"; };
+		9B7129CD1FDFCC0C004BB573 /* TokenHybridStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenHybridStack.m; sourceTree = "<group>"; };
+		9B7129CE1FDFCC0C004BB573 /* TokenNodeComponentRegister.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenNodeComponentRegister.m; sourceTree = "<group>"; };
+		9B7129CF1FDFCC0C004BB573 /* TokenHybridOrganizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenHybridOrganizer.m; sourceTree = "<group>"; };
+		9B7129D01FDFCC0C004BB573 /* TokenNodeComponentRegister.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenNodeComponentRegister.h; sourceTree = "<group>"; };
+		9B7129D11FDFCC0C004BB573 /* TokenHybridStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenHybridStack.h; sourceTree = "<group>"; };
+		9B7129D21FDFCC0C004BB573 /* TokenViewBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenViewBuilder.h; sourceTree = "<group>"; };
+		9B7129D31FDFCC0C004BB573 /* TokenHybridConstant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenHybridConstant.m; sourceTree = "<group>"; };
+		9B712A011FDFD28C004BB573 /* TokenHybridRenderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenHybridRenderView.h; sourceTree = "<group>"; };
+		9B712A021FDFD28C004BB573 /* TokenHybridRenderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenHybridRenderView.m; sourceTree = "<group>"; };
 		FB761CF93D96A72A3D3CAA0C /* Pods-TokenHybrid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokenHybrid.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TokenHybrid/Pods-TokenHybrid.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -218,83 +218,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9B2EB0701FB3EBDC0007FE01 /* component */ = {
-			isa = PBXGroup;
-			children = (
-				9B3CD2021FB53D9900AE516B /* TableView */,
-				9B15C8411FC7B1EB00249B66 /* TokenPageControl.h */,
-				9B15C8401FC7B1EB00249B66 /* TokenPageControl.m */,
-				9B3CD1FF1FB49B1900AE516B /* TokenHybridRenderController.h */,
-				9B3CD2001FB49B1900AE516B /* TokenHybridRenderController.m */,
-				9B7F64DF1FB44E6F009F0889 /* TokenPureComponent.h */,
-				9B7F64E01FB44E70009F0889 /* TokenPureComponent.m */,
-				9BD0AE801FB43FEE00C362FB /* TokenButtonComponent.h */,
-				9BD0AE741FB43FED00C362FB /* TokenButtonComponent.m */,
-				9BD0AE701FB43FED00C362FB /* TokenImageComponent.h */,
-				9BD0AE791FB43FEE00C362FB /* TokenImageComponent.m */,
-				9BD0AE731FB43FED00C362FB /* TokenInputComponent.h */,
-				9BD0AE7B1FB43FEE00C362FB /* TokenInputComponent.m */,
-				9BD0AE811FB43FEF00C362FB /* TokenLabelComponent.h */,
-				9BD0AE751FB43FED00C362FB /* TokenLabelComponent.m */,
-				9BD0AE7C1FB43FEE00C362FB /* TokenScrollComponent.h */,
-				9BD0AE6F1FB43FED00C362FB /* TokenScrollComponent.m */,
-				9BD0AE7D1FB43FEE00C362FB /* TokenSearchBarComponent.h */,
-				9BD0AE761FB43FED00C362FB /* TokenSearchBarComponent.m */,
-				9BD0AE7E1FB43FEE00C362FB /* TokenSegmentedComponent.h */,
-				9BD0AE711FB43FED00C362FB /* TokenSegmentedComponent.m */,
-				9BD0AE7F1FB43FEE00C362FB /* TokenSwitchComponent.h */,
-				9BD0AE821FB43FEF00C362FB /* TokenSwitchComponent.m */,
-				9BD0AE721FB43FED00C362FB /* TokenTextAreaComponent.h */,
-				9BD0AE831FB43FEF00C362FB /* TokenTextAreaComponent.m */,
-				9BD0AE841FB43FEF00C362FB /* TokenWebViewComponent.h */,
-				9BD0AE6E1FB43FEC00C362FB /* TokenWebViewComponent.m */,
-				9BD0AE691FB43E7F00C362FB /* TokenPickerComponent.h */,
-				9BD0AE681FB43E7F00C362FB /* TokenPickerComponent.m */,
-			);
-			path = component;
-			sourceTree = "<group>";
-		};
-		9B2EB0771FB3F0E80007FE01 /* category */ = {
-			isa = PBXGroup;
-			children = (
-				9B7E77B31FB5BA8D00B091BD /* TokenComponent+pullRefresh.h */,
-				9B7E77B41FB5BA8D00B091BD /* TokenComponent+pullRefresh.m */,
-				9B2EB07B1FB402030007FE01 /* TokenXMLNode+JSExport.h */,
-				9B2EB07C1FB402030007FE01 /* TokenXMLNode+JSExport.m */,
-				9BD0AE591FB42E9C00C362FB /* UIView+Attributes.h */,
-				9BD0AE5A1FB42E9C00C362FB /* UIView+Attributes.m */,
-				9BD0AE561FB427A600C362FB /* UIView+TokenFlexLayout.h */,
-				9BD0AE571FB427A600C362FB /* UIView+TokenFlexLayout.m */,
-				9BD0AE6C1FB43FC400C362FB /* NSDictionary+chainScript.h */,
-				9BD0AE6B1FB43FC300C362FB /* NSDictionary+chainScript.m */,
-				9BD0AE631FB43E5600C362FB /* JSValue+Token.h */,
-				9BD0AE641FB43E5600C362FB /* JSValue+Token.m */,
-				9B2EB0781FB3F1160007FE01 /* NSString+TokenHybrid.h */,
-				9B2EB0791FB3F1160007FE01 /* NSString+TokenHybrid.m */,
-			);
-			path = category;
-			sourceTree = "<group>";
-		};
-		9B3CD2021FB53D9900AE516B /* TableView */ = {
-			isa = PBXGroup;
-			children = (
-				9B3CD2031FB53D9900AE516B /* TokenDataItem.h */,
-				9B3CD2041FB53D9900AE516B /* TokenDataItem.m */,
-				9B3CD2071FB53D9900AE516B /* TokenTableComponent.h */,
-				9B3CD2081FB53D9900AE516B /* TokenTableComponent.m */,
-				9B3CD2051FB53D9900AE516B /* TokenTableCell.h */,
-				9B3CD2061FB53D9900AE516B /* TokenTableCell.m */,
-				9B3CD2091FB53D9900AE516B /* TokenTableSectionView.h */,
-				9B3CD20A1FB53D9900AE516B /* TokenTableSectionView.m */,
-			);
-			path = TableView;
-			sourceTree = "<group>";
-		};
 		9B69AFA31FB3117D0044AA28 = {
 			isa = PBXGroup;
 			children = (
-				9B69AFD51FB312DD0044AA28 /* TokenExtension */,
-				9B69AFD31FB312A70044AA28 /* source */,
+				9B71296F1FDFCC0C004BB573 /* Source */,
 				9B69AFAE1FB3117D0044AA28 /* TokenHybrid */,
 				9B69AFC71FB3117D0044AA28 /* TokenHybridTests */,
 				9B69AFAD1FB3117D0044AA28 /* Products */,
@@ -337,101 +264,174 @@
 			path = TokenHybridTests;
 			sourceTree = "<group>";
 		};
-		9B69AFD31FB312A70044AA28 /* source */ = {
+		9B71296F1FDFCC0C004BB573 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				9BD0AE5C1FB43E0000C362FB /* JavaScriptSupport */,
-				9B69AFF91FB314BD0044AA28 /* model */,
-				9B2EB0771FB3F0E80007FE01 /* category */,
-				9B69AFD41FB312C70044AA28 /* tool */,
-				9B2EB0701FB3EBDC0007FE01 /* component */,
-				9B69AFE51FB313420044AA28 /* parser */,
+				9B7129701FDFCC0C004BB573 /* TokenExtension */,
+				9B7129801FDFCC0C004BB573 /* category */,
+				9B71298F1FDFCC0C004BB573 /* JavaScriptSupport */,
+				9B7129991FDFCC0C004BB573 /* component */,
+				9B7129BF1FDFCC0C004BB573 /* parser */,
+				9B7129C41FDFCC0C004BB573 /* model */,
+				9B7129C91FDFCC0C004BB573 /* tool */,
 			);
-			path = source;
+			path = Source;
 			sourceTree = "<group>";
 		};
-		9B69AFD41FB312C70044AA28 /* tool */ = {
+		9B7129701FDFCC0C004BB573 /* TokenExtension */ = {
 			isa = PBXGroup;
 			children = (
-				9B69AFF61FB314480044AA28 /* TokenViewBuilder.h */,
-				9B69AFF71FB314480044AA28 /* TokenViewBuilder.m */,
-				9B69B04D1FB318970044AA28 /* TokenHybridConstant.h */,
-				9B69B04C1FB318960044AA28 /* TokenHybridConstant.m */,
-				9B69B0051FB3183F0044AA28 /* TokenNodeComponentRegister.h */,
-				9B69B0041FB3183F0044AA28 /* TokenNodeComponentRegister.m */,
-				9B69AFFF1FB316EC0044AA28 /* TokenHybridStack.h */,
-				9B69B0001FB316EC0044AA28 /* TokenHybridStack.m */,
-				9B69AFF31FB313D40044AA28 /* TokenHybridOrganizer.h */,
-				9B69AFF41FB313D40044AA28 /* TokenHybridOrganizer.m */,
-			);
-			path = tool;
-			sourceTree = "<group>";
-		};
-		9B69AFD51FB312DD0044AA28 /* TokenExtension */ = {
-			isa = PBXGroup;
-			children = (
-				9B69AFDC1FB312DD0044AA28 /* TokenExtensionHeader.h */,
-				9B69AFD61FB312DD0044AA28 /* Collection+Token.h */,
-				9B69AFD71FB312DD0044AA28 /* Collection+Token.m */,
-				9B69AFD81FB312DD0044AA28 /* NSString+Token.h */,
-				9B69AFD91FB312DD0044AA28 /* NSString+Token.m */,
-				9B69AFDA1FB312DD0044AA28 /* NSUserDefaults+Token.h */,
-				9B69AFDB1FB312DD0044AA28 /* NSUserDefaults+Token.m */,
-				9B69AFDD1FB312DD0044AA28 /* UIColor+SSRender.h */,
-				9B69AFDE1FB312DD0044AA28 /* UIColor+SSRender.m */,
-				9B69AFDF1FB312DD0044AA28 /* UIColor+Token.h */,
-				9B69AFE01FB312DD0044AA28 /* UIColor+Token.m */,
-				9B69AFE11FB312DD0044AA28 /* UIView+Token.h */,
-				9B69AFE21FB312DD0044AA28 /* UIView+Token.m */,
-				9B69AFE31FB312DD0044AA28 /* UIViewController+Token.h */,
-				9B69AFE41FB312DD0044AA28 /* UIViewController+Token.m */,
+				9B71297B1FDFCC0C004BB573 /* UIColor+SSRender.h */,
+				9B7129711FDFCC0C004BB573 /* UIColor+Token.h */,
+				9B7129721FDFCC0C004BB573 /* UIColor+SSRender.m */,
+				9B7129731FDFCC0C004BB573 /* NSUserDefaults+Token.m */,
+				9B7129741FDFCC0C004BB573 /* UIView+Token.h */,
+				9B7129751FDFCC0C004BB573 /* UIViewController+Token.m */,
+				9B7129761FDFCC0C004BB573 /* NSString+Token.m */,
+				9B7129771FDFCC0C004BB573 /* Collection+Token.h */,
+				9B7129781FDFCC0C004BB573 /* UIColor+Token.m */,
+				9B7129791FDFCC0C004BB573 /* TokenExtensionHeader.h */,
+				9B71297A1FDFCC0C004BB573 /* NSUserDefaults+Token.h */,
+				9B71297C1FDFCC0C004BB573 /* UIView+Token.m */,
+				9B71297D1FDFCC0C004BB573 /* NSString+Token.h */,
+				9B71297E1FDFCC0C004BB573 /* Collection+Token.m */,
+				9B71297F1FDFCC0C004BB573 /* UIViewController+Token.h */,
 			);
 			path = TokenExtension;
 			sourceTree = "<group>";
 		};
-		9B69AFE51FB313420044AA28 /* parser */ = {
+		9B7129801FDFCC0C004BB573 /* category */ = {
 			isa = PBXGroup;
 			children = (
-				9B69AFE81FB3134D0044AA28 /* TokenCSSParser.h */,
-				9B69AFE91FB3134D0044AA28 /* TokenCSSParser.m */,
-				9B69AFE61FB3134D0044AA28 /* TokenXMLParser.h */,
-				9B69AFE71FB3134D0044AA28 /* TokenXMLParser.m */,
+				9B7129811FDFCC0C004BB573 /* UIView+TokenFlexLayout.h */,
+				9B71298B1FDFCC0C004BB573 /* UIView+TokenFlexLayout.m */,
+				9B71298A1FDFCC0C004BB573 /* TokenXMLNode+JSExport.h */,
+				9B7129821FDFCC0C004BB573 /* TokenXMLNode+JSExport.m */,
+				9B7129891FDFCC0C004BB573 /* TokenComponent+pullRefresh.h */,
+				9B7129831FDFCC0C004BB573 /* TokenComponent+pullRefresh.m */,
+				9B7129881FDFCC0C004BB573 /* JSValue+Token.h */,
+				9B7129841FDFCC0C004BB573 /* JSValue+Token.m */,
+				9B7129851FDFCC0C004BB573 /* UIView+Attributes.h */,
+				9B71298C1FDFCC0C004BB573 /* UIView+Attributes.m */,
+				9B7129861FDFCC0C004BB573 /* NSString+TokenHybrid.h */,
+				9B71298D1FDFCC0C004BB573 /* NSString+TokenHybrid.m */,
+				9B71298E1FDFCC0C004BB573 /* NSDictionary+chainScript.h */,
+				9B7129871FDFCC0C004BB573 /* NSDictionary+chainScript.m */,
 			);
-			path = parser;
+			path = category;
 			sourceTree = "<group>";
 		};
-		9B69AFF91FB314BD0044AA28 /* model */ = {
+		9B71298F1FDFCC0C004BB573 /* JavaScriptSupport */ = {
 			isa = PBXGroup;
 			children = (
-				9B69AFFA1FB314BD0044AA28 /* TokenDocument.h */,
-				9B69AFFB1FB314BD0044AA28 /* TokenDocument.m */,
-				9B69AFFC1FB314BD0044AA28 /* TokenXMLNode.h */,
-				9B69AFFD1FB314BD0044AA28 /* TokenXMLNode.m */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		9BD0AE5C1FB43E0000C362FB /* JavaScriptSupport */ = {
-			isa = PBXGroup;
-			children = (
-				9BD0AE5D1FB43E0000C362FB /* Scripts */,
-				9B69AFFE1FB315640044AA28 /* TokenHybridDefine.h */,
-				9BD0AE5F1FB43E0000C362FB /* TokenJSContext.h */,
-				9BD0AE601FB43E0000C362FB /* TokenJSContext.m */,
-				9BD0AE611FB43E0000C362FB /* TokenTool.h */,
-				9BD0AE621FB43E0000C362FB /* TokenTool.m */,
-				9B49F4231FD9672E00234C48 /* TokenUserNotification.h */,
-				9B49F4241FD9672E00234C48 /* TokenUserNotification.m */,
+				9B7129961FDFCC0C004BB573 /* Scripts */,
+				9B7129921FDFCC0C004BB573 /* TokenHybridDefine.h */,
+				9B7129951FDFCC0C004BB573 /* TokenJSContext.h */,
+				9B7129901FDFCC0C004BB573 /* TokenJSContext.m */,
+				9B7129911FDFCC0C004BB573 /* TokenTool.h */,
+				9B7129941FDFCC0C004BB573 /* TokenTool.m */,
 			);
 			path = JavaScriptSupport;
 			sourceTree = "<group>";
 		};
-		9BD0AE5D1FB43E0000C362FB /* Scripts */ = {
+		9B7129961FDFCC0C004BB573 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				9BD0AE5E1FB43E0000C362FB /* TokenBase.js */,
+				9B7129971FDFCC0C004BB573 /* TokenBase.js */,
 			);
 			path = Scripts;
+			sourceTree = "<group>";
+		};
+		9B7129991FDFCC0C004BB573 /* component */ = {
+			isa = PBXGroup;
+			children = (
+				9B71299B1FDFCC0C004BB573 /* TableView */,
+				9B71299A1FDFCC0C004BB573 /* TokenHybridRenderController.h */,
+				9B7129B21FDFCC0C004BB573 /* TokenHybridRenderController.m */,
+				9B712A011FDFD28C004BB573 /* TokenHybridRenderView.h */,
+				9B712A021FDFD28C004BB573 /* TokenHybridRenderView.m */,
+				9B7129A41FDFCC0C004BB573 /* TokenImageComponent.h */,
+				9B7129B11FDFCC0C004BB573 /* TokenImageComponent.m */,
+				9B7129B31FDFCC0C004BB573 /* TokenTextAreaComponent.h */,
+				9B7129A51FDFCC0C004BB573 /* TokenTextAreaComponent.m */,
+				9B7129B91FDFCC0C004BB573 /* TokenScrollComponent.h */,
+				9B7129A71FDFCC0C004BB573 /* TokenScrollComponent.m */,
+				9B7129B81FDFCC0C004BB573 /* TokenSegmentedComponent.h */,
+				9B7129A81FDFCC0C004BB573 /* TokenSegmentedComponent.m */,
+				9B7129AA1FDFCC0C004BB573 /* TokenLabelComponent.h */,
+				9B7129B41FDFCC0C004BB573 /* TokenPickerComponent.h */,
+				9B7129AB1FDFCC0C004BB573 /* TokenPickerComponent.m */,
+				9B7129AC1FDFCC0C004BB573 /* TokenSwitchComponent.h */,
+				9B7129B51FDFCC0C004BB573 /* TokenSwitchComponent.m */,
+				9B7129AD1FDFCC0C004BB573 /* TokenSearchBarComponent.h */,
+				9B7129BE1FDFCC0C004BB573 /* TokenSearchBarComponent.m */,
+				9B7129BD1FDFCC0C004BB573 /* TokenButtonComponent.h */,
+				9B7129AF1FDFCC0C004BB573 /* TokenButtonComponent.m */,
+				9B7129B01FDFCC0C004BB573 /* TokenPureComponent.h */,
+				9B7129BB1FDFCC0C004BB573 /* TokenPureComponent.m */,
+				9B7129B61FDFCC0C004BB573 /* TokenLabelComponent.m */,
+				9B7129B71FDFCC0C004BB573 /* TokenPageControl.h */,
+				9B7129A91FDFCC0C004BB573 /* TokenPageControl.m */,
+				9B7129A61FDFCC0C004BB573 /* TokenInputComponent.h */,
+				9B7129BA1FDFCC0C004BB573 /* TokenInputComponent.m */,
+				9B7129BC1FDFCC0C004BB573 /* TokenWebViewComponent.h */,
+				9B7129AE1FDFCC0C004BB573 /* TokenWebViewComponent.m */,
+			);
+			path = component;
+			sourceTree = "<group>";
+		};
+		9B71299B1FDFCC0C004BB573 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				9B71299F1FDFCC0C004BB573 /* TokenTableComponent.h */,
+				9B7129A31FDFCC0C004BB573 /* TokenTableComponent.m */,
+				9B7129A01FDFCC0C004BB573 /* TokenDataItem.h */,
+				9B71299D1FDFCC0C004BB573 /* TokenDataItem.m */,
+				9B7129A11FDFCC0C004BB573 /* TokenTableCell.h */,
+				9B71299E1FDFCC0C004BB573 /* TokenTableCell.m */,
+				9B7129A21FDFCC0C004BB573 /* TokenTableSectionView.h */,
+				9B71299C1FDFCC0C004BB573 /* TokenTableSectionView.m */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		9B7129BF1FDFCC0C004BB573 /* parser */ = {
+			isa = PBXGroup;
+			children = (
+				9B7129C31FDFCC0C004BB573 /* TokenXMLParser.h */,
+				9B7129C11FDFCC0C004BB573 /* TokenXMLParser.m */,
+				9B7129C01FDFCC0C004BB573 /* TokenCSSParser.h */,
+				9B7129C21FDFCC0C004BB573 /* TokenCSSParser.m */,
+			);
+			path = parser;
+			sourceTree = "<group>";
+		};
+		9B7129C41FDFCC0C004BB573 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				9B7129C61FDFCC0C004BB573 /* TokenDocument.h */,
+				9B7129C81FDFCC0C004BB573 /* TokenDocument.m */,
+				9B7129C71FDFCC0C004BB573 /* TokenXMLNode.h */,
+				9B7129C51FDFCC0C004BB573 /* TokenXMLNode.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		9B7129C91FDFCC0C004BB573 /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				9B7129CA1FDFCC0C004BB573 /* TokenHybridOrganizer.h */,
+				9B7129CB1FDFCC0C004BB573 /* TokenHybridConstant.h */,
+				9B7129CC1FDFCC0C004BB573 /* TokenViewBuilder.m */,
+				9B7129CD1FDFCC0C004BB573 /* TokenHybridStack.m */,
+				9B7129CE1FDFCC0C004BB573 /* TokenNodeComponentRegister.m */,
+				9B7129CF1FDFCC0C004BB573 /* TokenHybridOrganizer.m */,
+				9B7129D01FDFCC0C004BB573 /* TokenNodeComponentRegister.h */,
+				9B7129D11FDFCC0C004BB573 /* TokenHybridStack.h */,
+				9B7129D21FDFCC0C004BB573 /* TokenViewBuilder.h */,
+				9B7129D31FDFCC0C004BB573 /* TokenHybridConstant.m */,
+			);
+			path = tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -519,7 +519,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B7F64DE1FB4493E009F0889 /* TokenBase.js in Resources */,
+				9B712A001FDFCC23004BB573 /* TokenBase.js in Resources */,
 				9B69AFBC1FB3117D0044AA28 /* LaunchScreen.storyboard in Resources */,
 				9B69AFB91FB3117D0044AA28 /* Assets.xcassets in Resources */,
 				9B69AFB71FB3117D0044AA28 /* Main.storyboard in Resources */,
@@ -604,51 +604,51 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B15C8421FC7B1EB00249B66 /* TokenPageControl.m in Sources */,
-				9B3CD20B1FB53DC500AE516B /* TokenDataItem.m in Sources */,
-				9B3CD20C1FB53DC500AE516B /* TokenTableCell.m in Sources */,
-				9B3CD20D1FB53DC500AE516B /* TokenTableComponent.m in Sources */,
-				9B3CD20E1FB53DC500AE516B /* TokenTableSectionView.m in Sources */,
-				9BD0AE661FB43E6100C362FB /* TokenJSContext.m in Sources */,
-				9BD0AE671FB43E6100C362FB /* TokenTool.m in Sources */,
-				9B2EB07A1FB3F11F0007FE01 /* NSString+TokenHybrid.m in Sources */,
-				9B69B0711FB31A1F0044AA28 /* Collection+Token.m in Sources */,
-				9BD0AE871FB43FEF00C362FB /* TokenScrollComponent.m in Sources */,
-				9B69B0721FB31A1F0044AA28 /* NSString+Token.m in Sources */,
-				9B69B0731FB31A1F0044AA28 /* NSUserDefaults+Token.m in Sources */,
-				9BD0AE8F1FB43FF000C362FB /* TokenSwitchComponent.m in Sources */,
-				9BD0AE881FB43FEF00C362FB /* TokenSegmentedComponent.m in Sources */,
-				9B69B0741FB31A1F0044AA28 /* UIColor+SSRender.m in Sources */,
-				9B69B0751FB31A1F0044AA28 /* UIColor+Token.m in Sources */,
-				9B69B0761FB31A1F0044AA28 /* UIView+Token.m in Sources */,
-				9B69B0771FB31A1F0044AA28 /* UIViewController+Token.m in Sources */,
-				9BD0AE8E1FB43FEF00C362FB /* TokenInputComponent.m in Sources */,
-				9BD0AE5B1FB42E9C00C362FB /* UIView+Attributes.m in Sources */,
-				9B69B08F1FB31A1F0044AA28 /* TokenDocument.m in Sources */,
-				9BD0AE901FB43FF000C362FB /* TokenTextAreaComponent.m in Sources */,
-				9BD0AE6D1FB43FC400C362FB /* NSDictionary+chainScript.m in Sources */,
-				9B49F4251FD9672E00234C48 /* TokenUserNotification.m in Sources */,
-				9B69B0901FB31A1F0044AA28 /* TokenXMLNode.m in Sources */,
-				9B69B0911FB31A1F0044AA28 /* TokenCSSParser.m in Sources */,
-				9B69B0921FB31A1F0044AA28 /* TokenXMLParser.m in Sources */,
-				9B3CD2011FB49B1900AE516B /* TokenHybridRenderController.m in Sources */,
-				9BD0AE8B1FB43FEF00C362FB /* TokenSearchBarComponent.m in Sources */,
-				9BD0AE651FB43E5600C362FB /* JSValue+Token.m in Sources */,
-				9BD0AE6A1FB43E7F00C362FB /* TokenPickerComponent.m in Sources */,
-				9BD0AE861FB43FEF00C362FB /* TokenWebViewComponent.m in Sources */,
-				9BD0AE581FB427A600C362FB /* UIView+TokenFlexLayout.m in Sources */,
-				9BD0AE8A1FB43FEF00C362FB /* TokenLabelComponent.m in Sources */,
-				9B69B0941FB31A1F0044AA28 /* TokenHybridConstant.m in Sources */,
-				9B7F64E11FB44E70009F0889 /* TokenPureComponent.m in Sources */,
-				9B69B0951FB31A1F0044AA28 /* TokenNodeComponentRegister.m in Sources */,
-				9B69B0961FB31A1F0044AA28 /* TokenHybridStack.m in Sources */,
-				9BD0AE8D1FB43FEF00C362FB /* TokenImageComponent.m in Sources */,
-				9B69B0971FB31A1F0044AA28 /* TokenHybridOrganizer.m in Sources */,
-				9B69B0981FB31A1F0044AA28 /* TokenViewBuilder.m in Sources */,
+				9B7129D41FDFCC17004BB573 /* UIColor+SSRender.m in Sources */,
+				9B7129D51FDFCC17004BB573 /* NSUserDefaults+Token.m in Sources */,
+				9B7129D61FDFCC17004BB573 /* UIViewController+Token.m in Sources */,
+				9B7129D71FDFCC17004BB573 /* NSString+Token.m in Sources */,
+				9B7129D81FDFCC17004BB573 /* UIColor+Token.m in Sources */,
+				9B7129D91FDFCC17004BB573 /* UIView+Token.m in Sources */,
+				9B7129DA1FDFCC17004BB573 /* Collection+Token.m in Sources */,
+				9B7129DB1FDFCC17004BB573 /* TokenXMLNode+JSExport.m in Sources */,
+				9B7129DC1FDFCC17004BB573 /* TokenComponent+pullRefresh.m in Sources */,
+				9B7129DD1FDFCC17004BB573 /* JSValue+Token.m in Sources */,
+				9B7129DE1FDFCC17004BB573 /* NSDictionary+chainScript.m in Sources */,
+				9B7129DF1FDFCC17004BB573 /* UIView+TokenFlexLayout.m in Sources */,
+				9B7129E01FDFCC17004BB573 /* UIView+Attributes.m in Sources */,
+				9B712A031FDFD28C004BB573 /* TokenHybridRenderView.m in Sources */,
+				9B7129E11FDFCC17004BB573 /* NSString+TokenHybrid.m in Sources */,
+				9B7129E21FDFCC17004BB573 /* TokenJSContext.m in Sources */,
+				9B7129E41FDFCC17004BB573 /* TokenTool.m in Sources */,
+				9B7129E51FDFCC17004BB573 /* TokenTableSectionView.m in Sources */,
+				9B7129E61FDFCC17004BB573 /* TokenDataItem.m in Sources */,
+				9B7129E71FDFCC17004BB573 /* TokenTableCell.m in Sources */,
+				9B7129E81FDFCC17004BB573 /* TokenTableComponent.m in Sources */,
+				9B7129E91FDFCC17004BB573 /* TokenTextAreaComponent.m in Sources */,
+				9B7129EA1FDFCC17004BB573 /* TokenScrollComponent.m in Sources */,
+				9B7129EB1FDFCC17004BB573 /* TokenSegmentedComponent.m in Sources */,
+				9B7129EC1FDFCC17004BB573 /* TokenPageControl.m in Sources */,
+				9B7129ED1FDFCC17004BB573 /* TokenPickerComponent.m in Sources */,
+				9B7129EE1FDFCC17004BB573 /* TokenWebViewComponent.m in Sources */,
+				9B7129EF1FDFCC17004BB573 /* TokenButtonComponent.m in Sources */,
+				9B7129F01FDFCC17004BB573 /* TokenImageComponent.m in Sources */,
+				9B7129F11FDFCC17004BB573 /* TokenHybridRenderController.m in Sources */,
+				9B7129F21FDFCC17004BB573 /* TokenSwitchComponent.m in Sources */,
+				9B7129F31FDFCC17004BB573 /* TokenLabelComponent.m in Sources */,
+				9B7129F41FDFCC17004BB573 /* TokenInputComponent.m in Sources */,
+				9B7129F51FDFCC17004BB573 /* TokenPureComponent.m in Sources */,
+				9B7129F61FDFCC17004BB573 /* TokenSearchBarComponent.m in Sources */,
+				9B7129F71FDFCC17004BB573 /* TokenXMLParser.m in Sources */,
+				9B7129F81FDFCC17004BB573 /* TokenCSSParser.m in Sources */,
+				9B7129F91FDFCC17004BB573 /* TokenXMLNode.m in Sources */,
+				9B7129FA1FDFCC17004BB573 /* TokenDocument.m in Sources */,
+				9B7129FB1FDFCC17004BB573 /* TokenViewBuilder.m in Sources */,
+				9B7129FC1FDFCC17004BB573 /* TokenHybridStack.m in Sources */,
+				9B7129FD1FDFCC17004BB573 /* TokenNodeComponentRegister.m in Sources */,
+				9B7129FE1FDFCC17004BB573 /* TokenHybridOrganizer.m in Sources */,
+				9B7129FF1FDFCC17004BB573 /* TokenHybridConstant.m in Sources */,
 				9B69AFB41FB3117D0044AA28 /* ViewController.m in Sources */,
-				9B7E77B51FB5BA8D00B091BD /* TokenComponent+pullRefresh.m in Sources */,
-				9B2EB07D1FB402030007FE01 /* TokenXMLNode+JSExport.m in Sources */,
-				9BD0AE891FB43FEF00C362FB /* TokenButtonComponent.m in Sources */,
 				9B69AFBF1FB3117D0044AA28 /* main.m in Sources */,
 				9B69AFB11FB3117D0044AA28 /* AppDelegate.m in Sources */,
 			);

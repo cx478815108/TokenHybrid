@@ -67,8 +67,8 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self viewBuilderWillRunScript];
-    [UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;
     [self.viewBuilder refreshView];
+    [UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
