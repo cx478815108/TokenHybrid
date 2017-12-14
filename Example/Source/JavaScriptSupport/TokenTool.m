@@ -443,10 +443,6 @@
     return @([UIScreen mainScreen].bounds.size.height);
 }
 
--(NSNumber *)visibleHeight{
-    return @(0);
-}
-
 #pragma mark - touchID
 -(void)requestTouchIDWithTitle:(JSValue *)title callBack:(JSValue *)callBack{
     NSString *desc= [title token_isNilObject]?@"请通过Home键验证已有指纹":[title toString];
