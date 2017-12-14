@@ -38,7 +38,6 @@ JSExportAs(requestTouchID, -(void)requestTouchIDWithTitle:(JSValue *)title callB
 
 -(NSNumber *)screenWidth;
 -(NSNumber *)screenHeight;
--(NSNumber *)visibleHeight;
 @end
 
 @interface TokenTool : NSObject <TokenAPIExport>

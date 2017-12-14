@@ -8,7 +8,6 @@
 
 #import "TokenJSContext.h"
 #import "TokenTool.h"
-#import "TokenUserNotification.h"
 #import "TokenHybridConstant.h"
 #import "JSValue+Token.h"
 #import "TokenHybridDefine.h"
@@ -58,7 +57,6 @@
 
 -(void)injectSupprotNativeObj{
     self[@"token"]        = [[TokenTool alloc] init];
-    self[@"notification"] = [[TokenUserNotification alloc] init];
     [[TokenJSContext privateScript] enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSDictionary * _Nonnull obj, BOOL * _Nonnull stop) {
         NSString *text = obj[@"text"];
         NSURL    *url  = obj[@"url"];

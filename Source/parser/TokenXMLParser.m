@@ -37,6 +37,13 @@ NS_INLINE dispatch_queue_t tokenXMLParserQueue(){
     NSMutableSet *_nodeContainInnerCSSStyleSet;
 }
 
+-(instancetype)initWithBodyViewFrame:(CGRect)frame{
+    if (self = [super init]) {
+        self.bodyViewFrame = frame;
+    }
+    return self;
+}
+
 -(void)parserHTML:(NSString *)html
 {
     dispatch_async(tokenXMLParserQueue(), ^{
@@ -99,7 +106,11 @@ qualifiedName:(NSString *)qName
 
     NSString *innerStyleString = node.innerAttributes[@"style"];
     if (innerStyleString && innerStyleString.length) {
-        NSDictionary *innerCSSStyle = [TokenCSSParser converAttrStringToDictionary:innerStyleString];
+        CGFloat      width          = self.bodyViewFrame.size.width;
+        CGFloat      height         = self.bodyViewFrame.size.height;
+        NSDictionary *innerCSSStyle = [TokenCSSParser converAttrStringToDictionary:innerStyleString
+                                                                containerViewWidth:width
+                                                               containerViewHeight:height];
         node.innerStyleAttributes  = innerCSSStyle;
         [_nodeContainInnerCSSStyleSet addObject:node];
     }

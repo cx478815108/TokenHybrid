@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@import UIKit;
 @class TokenXMLParser,TokenXMLNode;
 @protocol TokenXMLParserDelegate <NSObject>
 @optional
@@ -26,6 +27,9 @@
 @interface TokenXMLParser : NSObject
 @property(nonatomic ,weak) id <TokenXMLParserDelegate> delegate;
 @property(nonatomic ,copy) NSString *identifier;
+@property(nonatomic ,assign) CGRect bodyViewFrame;
+-(instancetype)init NS_UNAVAILABLE;
+-(instancetype)initWithBodyViewFrame:(CGRect)frame;
 -(void)parserHTML:(NSString *)html;
 -(void)stopParsing;
 @end

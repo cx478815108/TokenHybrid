@@ -28,27 +28,9 @@
     NSMutableArray *_navItems;
 }
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.viewBuilder = [[TokenViewBuilder alloc] init];
-        self.viewBuilder.delegate = self;
-        self.allowDebug = YES;
-    }
-    return self;
-}
-
 -(instancetype)initWithHTMLURL:(NSString *)htmlURL{
-    if (self = [self init]) {
-        _htmlURL = htmlURL;
-    }
-    return self;
-}
-
--(instancetype)initWithHTML:(NSString *)html{
-    if (self = [self init]) {
-        [self.viewBuilder buildViewWithHTML:html];
+    if (self = [super init]) {
+        self.htmlURL              = htmlURL;
     }
     return self;
 }
@@ -58,17 +40,21 @@
     if (!self.hiddenTitle) {
         self.title = @"加载中...";
     }
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    if (_htmlURL) {
-        [self.viewBuilder buildViewWithSourceURL:_htmlURL];
-    }
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //当导航栏透明时候，在viewWillAppear 里面才能正确拿到self.view.bounds
+    self.viewBuilder          = [[TokenViewBuilder alloc] initWithBodyViewFrame:self.view.bounds];
+    self.viewBuilder.delegate = self;
+    [self.viewBuilder buildViewWithSourceURL:self.htmlURL];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self viewBuilderWillRunScript];
     [UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;
-    [self.viewBuilder refreshView];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -81,17 +67,14 @@
 }
 
 -(void)reloadData{
-    if (!self.hiddenTitle) {
-        self.title = @"加载中...";
-    }
-    self.viewBuilder = [[TokenViewBuilder alloc] init];
+    if (!self.hiddenTitle) { self.title = @"加载中...";}
+    self.viewBuilder = [[TokenViewBuilder alloc] initWithBodyViewFrame:self.view.frame];
     self.viewBuilder.delegate = self;
     [self.viewBuilder buildViewWithSourceURL:_htmlURL];
 }
 
 #pragma mark - TokenHierarchyAnalystDelegate
 -(void)viewBuilderWillRunScript{
-    
     if (self.extension) {
         JSValue *windowValue = [self.viewBuilder.jsContext evaluateScript:@"setExtension"];
         NSDictionary *newObj = [self.extension copy];
@@ -141,53 +124,30 @@
         NSString *clsString = NSStringFromClass([obj class]);
         if ([clsString hasPrefix:@"Token"]) { [obj removeFromSuperview];}
     }];
+    view.frame = self.view.bounds;
     [self.view addSubview:view];
 }
 
-#pragma mark - debug
--(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
-//    if (!self.allowDebug || self.actionSheet.visible) return;
-//    [self.actionSheet show];
-}
-
--(BOOL)canBecomeFirstResponder{
-    return YES;
-}
-
-//-(void)debugView:(TokenHybridDebugView *)debugView didPressExcuseButtonWithScript:(NSString *)script{
-//    JSContext *context = [TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext;
-//    if ([script isEqualToString:@"clear"]) {
-//        [debugView clear];
-//    }
-//    else {
-//        [context evaluateScript:script];
-//    }
-//}
 
 #pragma mark - TokenJSContextDelegate
--(void)context:(TokenJSContext *)context didReceiveLogInfo:(NSString *)info{
-//    TokenHybridDebugView *debugView = (TokenHybridDebugView *)self.actionSheet.customView;
-//    [debugView addLog:info];
-//    [debugView scrollToBottom];
-}
-
 -(void)context:(TokenJSContext *)context setPriviousExtension:(NSDictionary *)extension{
     if ([extension isKindOfClass:[NSDictionary class]] && self.previousController) {
-        NSDictionary *previousExt = self.previousController.extension;
-        NSMutableDictionary *ext = [NSMutableDictionary dictionaryWithDictionary:previousExt?previousExt:@{}];
+        NSDictionary *previousExt         = self.previousController.extension;
+        NSMutableDictionary *ext          = [NSMutableDictionary dictionaryWithDictionary:previousExt?previousExt:@{}];
         [ext addEntriesFromDictionary:extension];
-        self.previousController.extension = extension;
+        self.previousController.extension = ext;
     }
 }
 
 #pragma mark - getter
+
 -(UILabel *)reloadLabel{
     if (_reloadLabel == nil) {
         _reloadLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, CGRectGetWidth(self.view.frame)-20, 200)];
         _reloadLabel.userInteractionEnabled = YES;
         _reloadLabel.numberOfLines = 0;
         _reloadLabel.textAlignment = NSTextAlignmentLeft;
-        _reloadLabel.textColor = [UIColor darkTextColor];
+        _reloadLabel.textColor     = [UIColor darkTextColor];
         [_reloadLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(reloadData)]];
         [self.view addSubview:_reloadLabel];
     }
