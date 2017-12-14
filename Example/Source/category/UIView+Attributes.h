@@ -18,5 +18,4 @@ typedef void(^UIViewEnumerateBlock)(__kindof UIView *view,BOOL *stop);
 +(void)token_enumerateViewFromRootToChildWithRootView:(UIView *)rootView
                                                 block:(UIViewEnumerateBlock)block;
 +(__kindof UIView *)token_produceViewWithNode:(TokenXMLNode *)node;
-+(CGFloat)token_screenVisibleHeight;
 @end

@@ -91,15 +91,4 @@
     TokenHybridRegisterModel   *model             = [componentRegister getRegisterModelWithNodeTagName:node.name];
     return [model creatNativeComponentWithNode:node];
 }
-
-+(CGFloat)token_screenVisibleHeight{
-    CGFloat screenH = [UIScreen mainScreen].bounds.size.height;
-    
-    NSNumber *translucent = [[TokenHybridOrganizer sharedOrganizer].currentViewController.navigationController.navigationBar valueForKeyPath:@"translucent"];
-    if (translucent && [translucent boolValue]) {
-        return screenH;
-    }
-    BOOL iPhoneX = screenH == 812.0f;
-    return iPhoneX?screenH - 88.0f:screenH-64.0f;
-}
 @end
