@@ -2,7 +2,7 @@
 
 
 ![](http://ou3yprhbt.bkt.clouddn.com/hybridBanner.png)
-![](https://img.shields.io/badge/language-ObjectiveC-orange.svg) ![](https://img.shields.io/badge/platform-iOS9+-blue.svg) ![](https://img.shields.io/dub/l/vibe-d.svg)
+![](https://img.shields.io/badge/language-ObjectiveC-orange.svg) ![](https://img.shields.io/badge/platform-iOS9+-blue.svg) ![](https://img.shields.io/dub/l/vibe-d.svg) ![](https://img.shields.io/cocoapods/v/TokenHybrid.svg?style=flat)
 
 ------------------------
 ## TokenHybrid是什么
@@ -14,6 +14,10 @@
 3. H5应用存在首屏加载时间慢，即使做的再好，也很难有原生的体验。
 
 工作原理：**TokenHybrid** 解析一个HTML 文本，并根据这个HTML 下载相应的CSS，JS 并且构建原生界面，使用JS交互。
+
+如何不使用服务器？
+将你编写好的HTML，CSS,JS文件放在github，获取row地址传给TokenHybrid就可以！
+之后更新App，只需修改HTML，CSS,JS并且push 到github即可。
 
 `TokenHybrid` 里面的代码你可以随意修改。作者水平有限，希望能和大家共同进步。希望收到你对这个想法的意见，代码改进建议或者PR
 
@@ -35,11 +39,15 @@
 
 ------------------------
 
-## Run
+## Install & Run
 
 Clone this project and run in Xcode9
 
-## 使用
+```
+pod 'TokenHybrid'
+```
+
+## API使用
 请看Document文件夹
 
 ### 手动安装

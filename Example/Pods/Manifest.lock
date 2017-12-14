@@ -1,8 +1,8 @@
 PODS:
-  - MJRefresh (3.1.15)
-  - SDWebImage (4.0.0):
-    - SDWebImage/Core (= 4.0.0)
-  - SDWebImage/Core (4.0.0)
+  - MJRefresh (3.1.15.1)
+  - SDWebImage (4.2.2):
+    - SDWebImage/Core (= 4.2.2)
+  - SDWebImage/Core (4.2.2)
   - TokenNetworking (1.0.1)
   - UITableView+FDTemplateLayoutCell (1.6)
   - Yoga (1.6.0)
@@ -17,8 +17,8 @@ DEPENDENCIES:
   - YogaKit
 
 SPEC CHECKSUMS:
-  MJRefresh: 9af70f5f9327a2cf87f0fb5929f35fcc2fa638ea
-  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
+  SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
   TokenNetworking: 09d71ff2ddb0b50e7982f26ba5e8b793b0e61618
   UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
   Yoga: 81670877477311136b1b3f69a6307ce62e1c89cf
