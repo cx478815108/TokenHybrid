@@ -30,7 +30,9 @@
 @property(nonatomic ,strong) NSUserDefaults     *currentPageDefaults;
 @property(nonatomic ,weak  ) id <TokenViewBuilderDelegate> delegate;
 @property(nonatomic ,assign) BOOL useCache;
+@property(nonatomic ,assign) CGRect bodyViewFrame;
+-(instancetype)init NS_UNAVAILABLE;
+-(instancetype)initWithBodyViewFrame:(CGRect)frame;
 -(void)buildViewWithSourceURL:(NSString *)url;
--(void)buildViewWithHTML:(NSString *)html;
 -(void)refreshView;
 @end

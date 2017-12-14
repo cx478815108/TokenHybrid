@@ -38,7 +38,7 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
     TokenHybridStack *_viewStack;
     TokenDocument    *_document;
     BOOL              _parserEnd;
-    BOOL              _pageRefresh;
+    BOOL              _pageRefreshed;
     BOOL              _existCache;
     NSSet            *_nodeContainInnerCSSStyleSet;
 }
@@ -50,37 +50,36 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
     });
 }
 
-- (instancetype)init
+- (instancetype)initWithBodyViewFrame:(CGRect)frame
 {
     self = [super init];
     if (self) {
-        self.document  = [[TokenDocument alloc] init];
-        self.jsContext = [[TokenJSContext alloc] init];
-        self.useCache  = YES;
+        self.document      = [[TokenDocument alloc] init];
+        self.jsContext     = [[TokenJSContext alloc] init];
+        self.useCache      = YES;
+        self.bodyViewFrame = frame;
     }
     return self;
 }
 
 -(void)buildViewWithSourceURL:(NSString *)url{
     HybridLog(@"buildViewWithSourceURL");
-    if (url==nil || url.length == 0) {
-        return;
-    }
+    if (url==nil || url.length == 0) { return;}
     
-//    self.useCache = NO;
-    _existCache = NO;
     self.document.sourceURL    = url;
     NSString *cacheKey         = NSString.token_md5(url);
     [[TokenHybridOrganizer sharedOrganizer] addPageDefaultWithSuiteName:cacheKey];
-    if (self.useCache) {
-        self.currentPageDefaults   = NSUserDefaults.token_initWithSuiteName(cacheKey);
-        NSData *documentCachedData = [self.currentPageDefaults objectForKey:cacheKey];
-        
-        if (documentCachedData) {
-            _existCache = YES;
-            self.document = [NSKeyedUnarchiver unarchiveObjectWithData:documentCachedData];
-            [self recoverFromDocument:self.document];
-        }
+    self.currentPageDefaults   = NSUserDefaults.token_initWithSuiteName(cacheKey);
+    NSData *documentCachedData = [self.currentPageDefaults objectForKey:cacheKey];
+    if (documentCachedData && self.useCache) { //从缓存加载
+        _existCache   = YES;
+        self.document = [NSKeyedUnarchiver unarchiveObjectWithData:documentCachedData];
+        [self recoverFromDocument:self.document];
+        //再更新
+        [self refreshViewExistCache:YES];
+    }
+    else { //从缓存不存在，直接更新
+        [self refreshViewExistCache:NO];
     }
 }
 -(void)refreshView{
@@ -107,26 +106,22 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
     })
     .finish(^(TokenNetworking *netWorkingObj, NSURLSessionTask *task, NSString *responsedObj) {
         if (responsedObj == nil || responsedObj.length == 0) return ;
-        if (!self.useCache) {
-            [self buildViewWithHTML:responsedObj];
-            return ;
-        }
-        
         NSString *html = responsedObj;
-        NSString *newFinger = NSString.token_md5(html);
-        NSString *oldFinger;
-        if (self.document.html) {
-            oldFinger = NSString.token_md5(self.document.html);
-        }
-        if (oldFinger == nil || ![oldFinger isEqualToString:newFinger]) {
-            HybridLog(@"缓存不存在或者指纹不一样，开始解析HTML");
-            if (existCache) {
-                _pageRefresh = YES;
+        if (existCache) { //缓存存在，指纹对比
+            NSString *newFinger = NSString.token_md5(html);
+            NSString *oldFinger;
+            if (self.document.html) {
+                oldFinger = NSString.token_md5(self.document.html);
             }
-            [self buildViewWithHTML:responsedObj];
+            if (oldFinger == nil || ![oldFinger isEqualToString:newFinger]) {
+                HybridLog(@"缓存存在并且指纹不一样，开始解析HTML，刷新UI");
+                _pageRefreshed = YES;
+                [self buildViewWithHTML:html];
+            }
         }
         else {
-            HybridLog(@"指纹一样，从缓存恢复");
+            HybridLog(@"缓存不存开始解析HTML");
+            [self buildViewWithHTML:responsedObj];
         }
     }, ^(TokenNetworking *netWorkingObj, NSError *error) {
         if ([self.delegate respondsToSelector:@selector(parserErrorOccurred:)]) {
@@ -138,11 +133,9 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
 
 -(void)buildViewWithHTML:(NSString *)html{
     HybridLog(@"buildViewWithHTML");
-    if (html == nil || html.length == 0) {
-        return;
-    }
+    if (html == nil || html.length == 0) { return;}
     self.document.html     = html;
-    TokenXMLParser *parser = [[TokenXMLParser alloc] init];
+    TokenXMLParser *parser = [[TokenXMLParser alloc] initWithBodyViewFrame:self.bodyViewFrame];
     parser.delegate        = self;
     [parser parserHTML:html];
     _xmlParser             = parser;
@@ -195,6 +188,7 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
     HybridLog(@"parserDidStart");
     _viewStack = [[TokenHybridStack alloc] init];
     if (_jsContext) {
+        //缓存更新，新的HTML里面可能更新了JS，需要重置JSContext,再运行JS语句
         _jsContext[@"document"] = nil;
         _jsContext = [[TokenJSContext alloc] init];
     }
@@ -240,7 +234,7 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
 
 -(void)parser:(TokenXMLParser *)parser didCreatHeadNode:(TokenXMLNode *)node{    
     dispatch_async(kTokenCSSProcessQueue, ^{
-        self.document.scripts = @[];
+        self.document.scripts  = @[];
         self.document.cssRules = @[];
         NSArray <TokenXMLNode *>* linkNodes    = [node getElementsByTagName:@"link"];
         NSArray <TokenXMLNode *>* styleNodes   = [node getElementsByTagName:@"style"];
@@ -270,7 +264,7 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
             [self.delegate viewBuilder:self parserErrorOccurred:error];
         });
     }
-    _document = nil;
+    _document  = nil;
     _jsContext = nil;
     [self releaseObj];
 }
@@ -298,7 +292,11 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
         }).transform(^id(TokenNetworking *netWorking, id responsedObj) {
             HybridLog(@"CSS文件下载完成");
             NSString     *cssText = [netWorking HTMLTextSerializeWithData:responsedObj];
-            NSDictionary *rules   = [TokenCSSParser parserCSSWithString:cssText];
+            CGFloat      width    = self.bodyViewFrame.size.width;
+            CGFloat      height   = self.bodyViewFrame.size.height;
+            NSDictionary *rules   = [TokenCSSParser parserCSSWithString:cssText
+                                                     containerViewWidth:width
+                                                    containerViewHeight:height];
             if (rules.allKeys.count) {
                 [_document addCSSRuels:rules];
             }
@@ -314,7 +312,11 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
 
 -(void)handleStyleNodes:(NSArray <TokenXMLNode *>*)nodes{
     [nodes enumerateObjectsUsingBlock:^(TokenXMLNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSDictionary *rules = [TokenCSSParser parserCSSWithString:obj.innerText];
+        CGFloat      width   = self.bodyViewFrame.size.width;
+        CGFloat      height  = self.bodyViewFrame.size.height;
+        NSDictionary *rules = [TokenCSSParser parserCSSWithString:obj.innerText
+                                               containerViewWidth:width
+                                              containerViewHeight:height];
         if (rules.allKeys.count) {
             [_document addCSSRuels:rules];
         }
@@ -450,7 +452,7 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
         if ([self.delegate respondsToSelector:@selector(viewBuilderWillRunScript)]) {
             [self.delegate viewBuilderWillRunScript];
         }
-        if (_pageRefresh) {
+        if (_pageRefreshed) {
             [self.jsContext pageRefresh];
         }
         
