@@ -7,10 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+@import UIKit;
 @class TokenXMLNode;
 @interface TokenCSSParser : NSObject
-+(NSDictionary *)parserCSSWithString:(NSString *)cssString;
-+(NSDictionary *)converAttrStringToDictionary:(NSString *)attrString;
++(NSDictionary *)converAttrStringToDictionary:(NSString *)attrString
+                           containerViewWidth:(CGFloat)containerViewWidth
+                          containerViewHeight:(CGFloat)containerViewHeight;
+
++(NSDictionary *)parserCSSWithString:(NSString *)cssString
+                  containerViewWidth:(CGFloat)containerViewWidth
+                 containerViewHeight:(CGFloat)containerViewHeight;
+
 //将CSS 选择器和 node进行匹配
 +(NSSet <TokenXMLNode *> *)matchNodesWithRootNode:(TokenXMLNode *)node selector:(NSString *)selector;
 @end

@@ -9,12 +9,13 @@
 #import "TokenCSSParser.h"
 #import "TokenXMLNode.h"
 #import "TokenExtensionHeader.h"
-#import "UIView+Attributes.h"
 
 @import UIKit;
 @implementation TokenCSSParser
 
 +(NSDictionary *)converAttrStringToDictionary:(NSString *)attrString
+                           containerViewWidth:(CGFloat)containerViewWidth
+                          containerViewHeight:(CGFloat)containerViewHeight
 {
     NSMutableArray <NSString *> *ruleStringArray = [NSMutableArray arrayWithArray:attrString.token_replace(@"\t",@"").token_replace(@"px",@"").token_separator(@";")];
     if ([ruleStringArray containsObject:@""]) {
@@ -42,19 +43,17 @@
                 // NSString *value = @"(calc(30%H-60),20),(100,200))";
                 if ([value containsString:@"%H"]) {
                     value = value.token_replaceWithRegExpHigh(@"[\\d.]+%H", ^NSString *(NSString *matchString) {
-                        CGFloat screenW = [UIScreen mainScreen].bounds.size.width;
                         NSString *newString = [NSString stringWithFormat:@"%@/100.000*%@",
                                                        matchString.token_replace(@"%H",@""),
-                                                       @(screenW)];
+                                                       @(containerViewWidth)];
                         return NSString.token_mathCalculate(newString);
                     });
                 }
                 if ([value containsString:@"%V"]) {
                     value = value.token_replaceWithRegExpHigh(@"[\\d.]+%V", ^NSString *(NSString *matchString) {
-                        CGFloat screenH = [UIView token_screenVisibleHeight];
                         NSString *newString = [NSString stringWithFormat:@"%@/100.000*%@",
                                                matchString.token_replace(@"%V",@""),
-                                               @(screenH)];
+                                               @(containerViewHeight)];
                         return NSString.token_mathCalculate(newString);
                     });
                 }
@@ -70,7 +69,9 @@
     return rules;
 }
 
-+(NSDictionary *)parserCSSWithString:(NSString *)cssString{
++(NSDictionary *)parserCSSWithString:(NSString *)cssString
+                  containerViewWidth:(CGFloat)containerViewWidth
+                 containerViewHeight:(CGFloat)containerViewHeight{
     if (cssString == nil) return @{};
     NSMutableDictionary *styleSheets = @{}.mutableCopy;
     NSString *commentRegExp = @"(?<!:)\\/\\/.*|\\/\\*(\\s|.)*?\\*\\/";
@@ -92,7 +93,9 @@
             rule = [css substringWithRange:NSMakeRange(braceMarker, i-braceMarker)];
             braceMarker = i + 1;
             if (selector.length && rule.length) {
-                NSDictionary *dic = [self converAttrStringToDictionary:rule];
+                NSDictionary *dic = [self converAttrStringToDictionary:rule
+                                                    containerViewWidth:containerViewWidth
+                                                   containerViewHeight:containerViewHeight];
                 if ([selector hasPrefix:@" "] || [selector hasSuffix:@" "]) {
                     selector = [selector stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
                 }
