@@ -17,5 +17,4 @@
 @property(nonatomic ,weak  ) TokenHybridRenderController *previousController;
 
 -(instancetype)initWithHTMLURL:(NSString *)htmlURL;
--(instancetype)initWithHTML:(NSString *)html;
 @end
