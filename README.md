@@ -32,16 +32,27 @@
 
 ## 预览
 以下所有界面，都使用TokenHybrid 构建，最后有GIF图
-
+图片中所有HTML源码在    [这里](https://github.com/cx478815108/TokenHybridHTML)
 ![](http://ou3yprhbt.bkt.clouddn.com/tokenhybrid.png)
 ![](https://raw.githubusercontent.com/cx478815108/TokenHybrid/master/screenshots/example.gif)
 
 
 ------------------------
+## How to use
+
+```
+- (IBAction)start:(id)sender {
+    NSString *url = @"your html url";   
+    TokenHybridRenderController *obj = [[TokenHybridRenderController alloc] initWithHTMLURL:url];
+    [self.navigationController pushViewController:obj animated:YES];
+}
+```
 
 ## Install & Run
 
 Clone this project and run in Xcode9
+
+Install
 
 ```
 pod 'TokenHybrid'
