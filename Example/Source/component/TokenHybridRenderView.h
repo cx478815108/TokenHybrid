@@ -9,5 +9,6 @@
 #import "TokenPureComponent.h"
 
 @interface TokenHybridRenderView : TokenPureComponent
-
+@property(nonatomic ,weak) UIViewController *associatedController;
+@property(nonatomic, copy) NSString     *htmlURL;
 @end
