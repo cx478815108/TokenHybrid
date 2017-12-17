@@ -9,9 +9,12 @@
 
 This is a tool that will **get you out of a server** ,using HTML,CSS,JS to build native interface. The following troubles will disappear.
     
- -  1. You can skip the long process that you need to update the app content or submit to the app store.
+ -  1. You can skip the long process that you need to update the content of app or submit it to the app store.
  -  2. No longer rely on the server. You can control the contents of the app dynamically. Bonus scenes are easy to creat.
  -  3. Replace some H5 apps with this tool and provide a better experience.
+
+Thesr is no doubt that `TokenHybrid` will increase the flexibility of development！
+ 
 
 ------------------------
 ### How to get out of a server
@@ -68,9 +71,9 @@ please see Document
 
 这是一个可以让你**脱离服务器**，使用HTML,CSS,JS构建iOS 原生界面的工具，**帮你解除以下烦恼**
     
-    1. 不在为了修复一个小BUG 或者为更新一点内容就得去app store 审核，跳过这个漫长的过程。
-    2. 不再依赖服务器，自己控制app 的内容，动态更新界面或者功能，给用户创造彩蛋，吸引用户。
-    3. 取代部分H5，提供更好的体验。
+-  1. 不在为了修复一个小BUG 或者为更新一点内容就得去app store 审核，跳过这个漫长的过程。
+-  2. 不再依赖服务器，自己控制app 的内容，动态更新界面或者功能，给用户创造彩蛋，吸引用户。
+-  3. 取代部分H5，提供更好的体验。
 
 ------------------------
 ### 如何不依赖服务器？
@@ -89,9 +92,9 @@ please see Document
 
 ## TokenHybrid 特性
 
-1. 轻量，可扩展性高，独立开发者的更新程序**不用依赖服务器更新app**。
-2. 取代部分H5应用，自动缓存数据结构，包括视图的坐标信息，第二次打开更加迅速。
-3. 支持部分HTML,CSS标准，使用Flex布局，HTML 更新后，重新打开界面会自动生成新界面！
+-  1. 轻量，可扩展性高，独立开发者的更新程序**不用依赖服务器更新app**。
+-  2. 取代部分H5应用，自动缓存数据结构，包括视图的坐标信息，第二次打开更加迅速。
+-  3. 支持部分HTML,CSS标准，使用Flex布局，HTML 更新后，重新打开界面会自动生成新界面！
 
 ## 预览
 
