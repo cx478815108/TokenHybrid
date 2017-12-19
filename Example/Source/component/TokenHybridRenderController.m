@@ -44,14 +44,21 @@
         self.title = @"加载中...";
     }
     self.view.backgroundColor = [UIColor whiteColor];
+    CGFloat bodyHeight = CGRectGetHeight(self.view.frame);
+    CGFloat originY    = self.view.bounds.origin.y;
+    if (self.navigationController.navigationBar.translucent == NO) {
+        bodyHeight -= [[UIApplication sharedApplication] statusBarFrame].size.height + 44.0f;
+    }
+    CGRect bodyFrame = CGRectMake(0, originY, CGRectGetWidth(self.view.frame),bodyHeight);
+    self.viewBuilder          = [[TokenViewBuilder alloc] initWithBodyViewFrame:bodyFrame];
+    self.viewBuilder.delegate = self;
+    [self.viewBuilder buildViewWithSourceURL:self.htmlURL];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     //当导航栏透明时候，在viewWillAppear 里面才能正确拿到self.view.bounds
-    self.viewBuilder          = [[TokenViewBuilder alloc] initWithBodyViewFrame:self.view.bounds];
-    self.viewBuilder.delegate = self;
-    [self.viewBuilder buildViewWithSourceURL:self.htmlURL];
+    [self.viewBuilder refreshView];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
