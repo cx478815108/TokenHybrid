@@ -10,6 +10,7 @@
 
 @import JavaScriptCore;
 @import UIKit;
+@class TokenJSContext;
 @protocol TokenAPIExport <JSExport>
 @optional
 //storage
@@ -26,8 +27,6 @@ JSExportAs(getLocation, -(void)getLocation:(JSValue *)callBack);
 JSExportAs(log, -(void)log:(NSString *)msg);
 //imageValue {"url","success","failure"}
 JSExportAs(saveImage, -(void)saveImageWithJSValue:(JSValue *)imageValue);
-JSExportAs(dispatchMainAfter, -(void)dospatchMainAfter:(JSValue *)numberValue callBack:(JSValue *)callBack);
-JSExportAs(dispatchGlobleAfter, -(void)dospatchGlobleAfter:(JSValue *)numberValue callBack:(JSValue *)callBack);
 JSExportAs(alert, -(void)alertWithTitle:(NSString *)title msg:(NSString *)msg);
 JSExportAs(alertTitles, -(void)alertWithWithJSValue:(JSValue *)alertValue);
 JSExportAs(alertInput, -(void)alertInput:(JSValue *)alertValue);
@@ -35,12 +34,14 @@ JSExportAs(showSheetView, -(void)showSheetViewWithJSValue:(JSValue *)sheetValue)
 JSExportAs(pickData, -(void)pickData:(JSValue *)pickValue);
 //(code ,desc)
 JSExportAs(requestTouchID, -(void)requestTouchIDWithTitle:(JSValue *)title callBack:(JSValue *)callBack);
-
+JSExportAs(setMainTimeOut, -(void)setMainTimeOutWithCallBack:(JSValue *)callBack interval:(JSValue *)interval);
+JSExportAs(setTimeOut, -(void)setTimeOutWithCallBack:(JSValue *)callBack interval:(JSValue *)interval);
 -(NSNumber *)screenWidth;
 -(NSNumber *)screenHeight;
+-(NSNumber *)visibleHeight;
 @end
 
 @interface TokenTool : NSObject <TokenAPIExport>
 @property(nonatomic ,strong) NSUserDefaults *globleDefaultes;
-@property(nonatomic ,strong) NSUserDefaults *currentPageDefaultes;
+@property(nonatomic ,weak  ) TokenJSContext *jsContext;
 @end

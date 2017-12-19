@@ -9,10 +9,9 @@
 #import "TokenTool.h"
 #import "TokenNetworking.h"
 #import "TokenHybridConstant.h"
-#import "TokenPickerComponent.h"
-#import "TokenHybridOrganizer.h"
-#import "TokenHybridRenderController.h"
 #import "TokenHybridDefine.h"
+#import "TokenPickerComponent.h"
+#import "TokenJSContext.h"
 
 #import "NSUserDefaults+Token.h"
 #import "NSString+Token.h"
@@ -37,7 +36,6 @@
     NSString          *_globleSuiteName;
     UIImageView       *_saveImageView;
 }
-
 
 - (instancetype)init
 {
@@ -81,7 +79,6 @@
             else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored"-Wdeprecated-declarations"
-
                 __block ALAssetsLibrary *lib = [[ALAssetsLibrary alloc] init];
                 [lib writeImageToSavedPhotosAlbum:image.CGImage metadata:nil completionBlock:^(NSURL *assetURL, NSError *error) {
                     if (error) {
@@ -135,13 +132,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableString* str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",number];
         if (@available(iOS 10, *)) {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str] options:@{} completionHandler:^(BOOL success) {
-                if (success) {
-                    HybridLog(@"call成功");
-                } else {
-                    HybridLog(@"call 失败");
-                }
-            }];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str] options:@{} completionHandler:nil];
         }
         else {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
@@ -251,7 +242,7 @@
     JSValue *feedback         = sheetValue[@"feedBack"];
     JSValue *cancleButton     = sheetValue[@"cancleButton"];
     NSArray *actionTitleArray = [actionTitles toArray];
-
+    
     if (actionTitles == nil || [actionTitles isUndefined] || actionTitleArray == nil) {
         return;
     }
@@ -328,7 +319,7 @@
                 }
             }]];
         }
-        [[TokenHybridOrganizer sharedOrganizer].currentViewController presentViewController:alertController animated:YES completion:nil];
+        [[self.jsContext getContainerController] presentViewController:alertController animated:YES completion:nil];
     });
 }
 
@@ -347,7 +338,7 @@
                                                            [strongAlert dismissViewControllerAnimated:YES completion:nil];
                                                        }];
         [alert addAction:action];
-        [[TokenHybridOrganizer sharedOrganizer].currentViewController presentViewController:alert animated:YES completion:nil];
+        [[self.jsContext getContainerController] presentViewController:alert animated:YES completion:nil];
     });
 }
 
@@ -395,35 +386,7 @@
                 [feedback callWithArguments:texts];
             }
         }])];
-        
-        [[TokenHybridOrganizer sharedOrganizer].currentViewController presentViewController:alertController animated:YES completion:nil];
-    });
-}
-
-#pragma mark -
--(void)dospatchMainAfter:(JSValue *)numberValue callBack:(JSValue *)callBack {
-    if (numberValue == nil        ||
-        [numberValue isUndefined] ||
-        callBack == nil           ||
-        [callBack isUndefined]) {
-        return ;
-    }
-    NSNumber *number = [numberValue toNumber];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)([number floatValue] * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [callBack callWithArguments:@[]];
-    });
-}
-
--(void)dospatchGlobleAfter:(JSValue *)numberValue callBack:(JSValue *)callBack {
-    if (numberValue == nil        ||
-        [numberValue isUndefined] ||
-        callBack == nil           ||
-        [callBack isUndefined]) {
-        return ;
-    }
-    NSNumber *number = [numberValue toNumber];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)([number floatValue] * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
-        [callBack callWithArguments:@[]];
+        [[self.jsContext getContainerController] presentViewController:alertController animated:YES completion:nil];
     });
 }
 
@@ -441,6 +404,10 @@
 
 -(NSNumber *)screenHeight{
     return @([UIScreen mainScreen].bounds.size.height);
+}
+
+-(NSNumber *)visibleHeight{
+    return @(0);
 }
 
 #pragma mark - touchID
@@ -504,10 +471,7 @@
 
 #pragma mark - storage
 -(id)getStorage:(NSString *)key{
-    if (_currentPageDefaultes) {
-        return _currentPageDefaultes.token_objectForKey(key);
-    }
-    return nil;
+    return [[self currentPageDefaultes] objectForKey:key];
 }
 
 -(id)getGlobleStorage:(NSString *)key{
@@ -515,15 +479,15 @@
 }
 
 -(void)setStorage:(JSValue *)dicValue{
-    [self setStorageWithJSValue:dicValue defaultes:_currentPageDefaultes];
+    [self setStorageWithJSValue:dicValue defaultes:[self currentPageDefaultes]];
 }
 -(void)setGlobleStorage:(JSValue *)dicValue{
     [self setStorageWithJSValue:dicValue defaultes:_globleDefaultes];
 }
 
 -(void)clearAllStorage{
-    if (_currentPageDefaultes) {
-        _currentPageDefaultes.token_removePersistentDomainForName(NSString.token_md5(_globleSuiteName));
+    if ([self currentPageDefaultes]) {
+        [self currentPageDefaultes].token_removePersistentDomainForName(NSString.token_md5(_globleSuiteName));
     }
 }
 
@@ -548,15 +512,29 @@
     defaultes.token_setObjectForKey(key,data);
 }
 
+-(void)setTimeOutWithCallBack:(JSValue *)callBack interval:(JSValue *)interval{
+    if ([callBack token_isNilObject] || [interval token_isNilObject]) {
+        return;
+    }
+    CGFloat timeInterval = [[interval toNumber] floatValue];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeInterval * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
+        [callBack callWithArguments:nil];
+    });
+}
+
+-(void)setMainTimeOutWithCallBack:(JSValue *)callBack interval:(JSValue *)interval{
+    if ([callBack token_isNilObject] || [interval token_isNilObject]) {
+        return;
+    }
+    CGFloat timeInterval = [[interval toNumber] floatValue];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeInterval * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [callBack callWithArguments:nil];
+    });
+}
+
 #pragma mark - getter
 -(NSUserDefaults *)currentPageDefaultes{
-    if (_currentPageDefaultes == nil) {
-        TokenHybridRenderController *controller = [TokenHybridOrganizer sharedOrganizer].currentViewController;
-        if (controller.htmlURL) {
-            _currentPageDefaultes = NSUserDefaults.token_initWithSuiteName(NSString.token_md5(controller.htmlURL));
-        }
-    }
-    return _currentPageDefaultes;
+    return [self.jsContext getCurrentPageUserDefaults];
 }
 
 @end
