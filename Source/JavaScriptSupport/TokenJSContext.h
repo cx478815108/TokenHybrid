@@ -8,17 +8,19 @@
 
 #import <JavaScriptCore/JavaScriptCore.h>
 
-@class TokenXMLNode,TokenEvent,TokenJSContext;
-
+@class TokenXMLNode,TokenEvent,TokenJSContext,TokenAssociateContext;
+@import UIKit;
 @protocol TokenJSContextDelegate<NSObject>
 @optional
 -(void)context:(TokenJSContext *)context didReceiveLogInfo:(NSString *)info;
 -(void)context:(TokenJSContext *)context setPriviousExtension:(NSDictionary *)extension;
-
+-(TokenAssociateContext *)contextGetAssociateContext;
 @end
 
 @interface TokenJSContext : JSContext
 @property(nonatomic ,weak) id <TokenJSContextDelegate> delegate;
+-(UIViewController *)getContainerController;
+-(NSUserDefaults *)getCurrentPageUserDefaults;
 -(void)keepEventValueAlive:(JSValue *)value;
 -(void)pageShow;
 -(void)pageClose;

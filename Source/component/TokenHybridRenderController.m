@@ -11,17 +11,20 @@
 #import "TokenViewBuilder.h"
 #import "TokenJSContext.h"
 #import "TokenXMLNode.h"
+#import "TokenDocument.h"
 #import "TokenPureComponent.h"
 #import "TokenButtonComponent.h"
 #import "TokenHybridConstant.h"
 #import "TokenHybridOrganizer.h"
+#import "TokenAssociateContext.h"
 
 #import "NSString+Token.h"
 #import "UIView+Attributes.h"
 
 @interface TokenHybridRenderController () <TokenViewBuilderDelegate,TokenJSContextDelegate>
-@property(nonatomic ,strong) UILabel          *reloadLabel;
-@property(nonatomic ,strong) TokenViewBuilder *viewBuilder;
+@property(nonatomic ,strong) UILabel               *reloadLabel;
+@property(nonatomic ,strong) TokenViewBuilder      *viewBuilder;
+@property(nonatomic ,strong) TokenAssociateContext *associateContext;
 @end
 
 @implementation TokenHybridRenderController{
@@ -60,8 +63,6 @@
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     [self.viewBuilder.jsContext pageClose];
-    [TokenHybridOrganizer sharedOrganizer].currentViewBuilder    = nil;
-    [TokenHybridOrganizer sharedOrganizer].currentViewController = nil;
     [[NSNotificationCenter defaultCenter] postNotificationName:TokenHybridPageDisappearNotification object:nil];
     [UIApplication sharedApplication].applicationSupportsShakeToEdit = NO;
 }
@@ -80,9 +81,6 @@
         NSDictionary *newObj = [self.extension copy];
         [windowValue callWithArguments:newObj?@[newObj]:nil];
     }
-    
-    [TokenHybridOrganizer sharedOrganizer].currentViewBuilder    = self.viewBuilder;
-    [TokenHybridOrganizer sharedOrganizer].currentViewController = self;
     self.viewBuilder.jsContext.delegate = self;
 }
 
@@ -128,7 +126,6 @@
     [self.view addSubview:view];
 }
 
-
 #pragma mark - TokenJSContextDelegate
 -(void)context:(TokenJSContext *)context setPriviousExtension:(NSDictionary *)extension{
     if ([extension isKindOfClass:[NSDictionary class]] && self.previousController) {
@@ -137,6 +134,15 @@
         [ext addEntriesFromDictionary:extension];
         self.previousController.extension = ext;
     }
+}
+
+-(TokenAssociateContext *)contextGetAssociateContext{
+    if (_associateContext == nil) {
+        _associateContext = [[TokenAssociateContext alloc] init];
+    }
+    _associateContext.currentAssociateController = self;
+    _associateContext.currentAssociateViewBuilder = self.viewBuilder;
+    return _associateContext;
 }
 
 #pragma mark - getter
