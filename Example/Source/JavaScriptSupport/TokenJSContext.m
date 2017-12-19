@@ -7,10 +7,14 @@
 //
 
 #import "TokenJSContext.h"
-#import "TokenTool.h"
 #import "TokenHybridConstant.h"
+#import "TokenTool.h"
 #import "JSValue+Token.h"
 #import "TokenHybridDefine.h"
+#import "TokenAssociateContext.h"
+#import "TokenHybridRenderView.h"
+#import "TokenHybridRenderController.h"
+#import "TokenViewBuilder.h"
 
 @interface TokenJSContext()
 @end
@@ -25,7 +29,7 @@
     dispatch_once(&onceToken, ^{
         scriptStore = @{}.mutableCopy;
         NSString *scriptName = @"TokenBase";
-        NSString *baseScriptPath = [[NSBundle mainBundle] pathForResource:scriptName ofType:@"js"];
+        NSString *baseScriptPath = [[NSBundle bundleForClass:self] pathForResource:scriptName ofType:@"js"];
         NSString *baseScript     = [NSString stringWithContentsOfFile:baseScriptPath encoding:NSUTF8StringEncoding error:nil];
         NSURL *baseScriptURL     = [NSURL URLWithString:baseScriptPath];
         if (baseScript && baseScriptURL) {
@@ -56,7 +60,11 @@
 }
 
 -(void)injectSupprotNativeObj{
-    self[@"token"]        = [[TokenTool alloc] init];
+    
+    TokenTool *token = [[TokenTool alloc] init];
+    token.jsContext  = self;
+    self[@"token"]   = token;
+    
     [[TokenJSContext privateScript] enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSDictionary * _Nonnull obj, BOOL * _Nonnull stop) {
         NSString *text = obj[@"text"];
         NSURL    *url  = obj[@"url"];
@@ -98,6 +106,26 @@
     _eventValueAliveCount += 1;
     JSValue *function = [self evaluateScript:@"window.keepEventValueAlive"];
     [function callWithArguments:@[@(_eventValueAliveCount),value]];
+}
+
+#pragma mark - getter
+
+-(UIViewController *)getContainerController{
+    UIViewController *viewController;
+    if ([self.delegate respondsToSelector:@selector(contextGetAssociateContext)]) {
+        viewController = [self.delegate contextGetAssociateContext].currentAssociateView.associatedController;
+        if (viewController == nil) {
+            viewController = [self.delegate contextGetAssociateContext].currentAssociateController;
+        }
+    }
+    return viewController;
+}
+
+-(NSUserDefaults *)getCurrentPageUserDefaults;{
+    if ([self.delegate respondsToSelector:@selector(contextGetAssociateContext)]) {
+        return [self.delegate contextGetAssociateContext].currentAssociateViewBuilder.currentPageDefaults;
+    }
+    return nil;
 }
 
 - (void)dealloc
