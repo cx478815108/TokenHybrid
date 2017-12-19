@@ -8,8 +8,6 @@
 
 #import "TokenHybridRenderController.h"
 #import "TokenHybridDefine.h"
-#import "TokenViewBuilder.h"
-#import "TokenJSContext.h"
 #import "TokenXMLNode.h"
 #import "TokenDocument.h"
 #import "TokenPureComponent.h"
@@ -21,9 +19,8 @@
 #import "NSString+Token.h"
 #import "UIView+Attributes.h"
 
-@interface TokenHybridRenderController () <TokenViewBuilderDelegate,TokenJSContextDelegate>
+@interface TokenHybridRenderController () 
 @property(nonatomic ,strong) UILabel               *reloadLabel;
-@property(nonatomic ,strong) TokenViewBuilder      *viewBuilder;
 @property(nonatomic ,strong) TokenAssociateContext *associateContext;
 @end
 

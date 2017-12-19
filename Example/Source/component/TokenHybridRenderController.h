@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TokenViewBuilder.h"
+#import "TokenJSContext.h"
 
-@interface TokenHybridRenderController : UIViewController
+@interface TokenHybridRenderController : UIViewController <TokenViewBuilderDelegate,TokenJSContextDelegate>
 @property(nonatomic ,assign) BOOL         hiddenTitle;
 @property(nonatomic ,assign) BOOL         allowDebug;
 @property(nonatomic, copy  ) NSString     *htmlURL;
 @property(nonatomic, copy  ) NSString     *htmlPath;
 @property(nonatomic ,strong) NSDictionary *extension;
+@property(nonatomic ,strong) TokenViewBuilder            *viewBuilder;
 @property(nonatomic ,weak  ) TokenHybridRenderController *previousController;
 
 -(instancetype)initWithHTMLURL:(NSString *)htmlURL;
