@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B587DAC1FE8DDBB0004A863 /* TokenAssociateContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B587DAB1FE8DDBB0004A863 /* TokenAssociateContext.m */; };
 		9B69AFB11FB3117D0044AA28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFB01FB3117D0044AA28 /* AppDelegate.m */; };
 		9B69AFB41FB3117D0044AA28 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFB31FB3117D0044AA28 /* ViewController.m */; };
 		9B69AFB71FB3117D0044AA28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B69AFB51FB3117D0044AA28 /* Main.storyboard */; };
@@ -75,6 +76,8 @@
 /* Begin PBXFileReference section */
 		2097151F60668847B9E02042 /* Pods_TokenHybrid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TokenHybrid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67A344AA5B0106750828224A /* Pods-TokenHybrid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokenHybrid.release.xcconfig"; path = "Pods/Target Support Files/Pods-TokenHybrid/Pods-TokenHybrid.release.xcconfig"; sourceTree = "<group>"; };
+		9B587DAA1FE8DDBB0004A863 /* TokenAssociateContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenAssociateContext.h; sourceTree = "<group>"; };
+		9B587DAB1FE8DDBB0004A863 /* TokenAssociateContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenAssociateContext.m; sourceTree = "<group>"; };
 		9B69AFAC1FB3117D0044AA28 /* TokenHybrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TokenHybrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B69AFAF1FB3117D0044AA28 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9B69AFB01FB3117D0044AA28 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -411,6 +414,8 @@
 			children = (
 				9B7129C61FDFCC0C004BB573 /* TokenDocument.h */,
 				9B7129C81FDFCC0C004BB573 /* TokenDocument.m */,
+				9B587DAA1FE8DDBB0004A863 /* TokenAssociateContext.h */,
+				9B587DAB1FE8DDBB0004A863 /* TokenAssociateContext.m */,
 				9B7129C71FDFCC0C004BB573 /* TokenXMLNode.h */,
 				9B7129C51FDFCC0C004BB573 /* TokenXMLNode.m */,
 			);
@@ -624,6 +629,7 @@
 				9B7129E51FDFCC17004BB573 /* TokenTableSectionView.m in Sources */,
 				9B7129E61FDFCC17004BB573 /* TokenDataItem.m in Sources */,
 				9B7129E71FDFCC17004BB573 /* TokenTableCell.m in Sources */,
+				9B587DAC1FE8DDBB0004A863 /* TokenAssociateContext.m in Sources */,
 				9B7129E81FDFCC17004BB573 /* TokenTableComponent.m in Sources */,
 				9B7129E91FDFCC17004BB573 /* TokenTextAreaComponent.m in Sources */,
 				9B7129EA1FDFCC17004BB573 /* TokenScrollComponent.m in Sources */,
