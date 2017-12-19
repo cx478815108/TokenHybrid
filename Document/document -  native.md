@@ -2,15 +2,6 @@
 
 对native能力的获取需要用到token对象
 
-### 用户数据获取
-
-```
-token.userInfo(); //获取用户数据
-token.existUser(); //是否登录
-token.didLoginLibrary(); //
-token.didLogininOffice(); //
-```
-
 ### 网络请求
 ```
 
@@ -98,23 +89,6 @@ token.saveImage({
 
 ```
 
-### toast 和 HUD
-
-```
-token.showNormalToast("我是文本显示5s",5s);  //紫色toast
-token.showErrorToast("我是文本显示5s",5s);  //红色tosat
-token.showHUDWithStatus("我开始转菊花-需要手动hide");
-token.showSuccessHUD("带对勾的提示-自动hide")
-token.showErrorHUD("带叉叉的提示-自动hide")
-token.hideHUD();hide HUD
-
-```
-
-### 预览图片
-
-```
-token.previewImages(["图片1 URL","图片2 URL""图片3 URL",...],2);//初始在第二个图片
-```
 
 ### 异步线程操作
 
@@ -192,11 +166,5 @@ token.screenWidth();
 
 //当前屏幕的高度
 token.screenHeight();
-
-//随机字符串颜色 
-token.randomColor() 
-
-//随机字符串颜色 - 随机的是掌理8个主题色
-token.randomThemColor()
 ```
 
