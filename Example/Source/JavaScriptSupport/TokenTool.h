@@ -38,7 +38,6 @@ JSExportAs(setMainTimeOut, -(void)setMainTimeOutWithCallBack:(JSValue *)callBack
 JSExportAs(setTimeOut, -(void)setTimeOutWithCallBack:(JSValue *)callBack interval:(JSValue *)interval);
 -(NSNumber *)screenWidth;
 -(NSNumber *)screenHeight;
--(NSNumber *)visibleHeight;
 @end
 
 @interface TokenTool : NSObject <TokenAPIExport>

@@ -406,10 +406,6 @@
     return @([UIScreen mainScreen].bounds.size.height);
 }
 
--(NSNumber *)visibleHeight{
-    return @(0);
-}
-
 #pragma mark - touchID
 -(void)requestTouchIDWithTitle:(JSValue *)title callBack:(JSValue *)callBack{
     NSString *desc= [title token_isNilObject]?@"请通过Home键验证已有指纹":[title toString];
@@ -470,12 +466,12 @@
 }
 
 #pragma mark - storage
--(id)getStorage:(NSString *)key{
-    return [[self currentPageDefaultes] objectForKey:key];
+-(id)getStorage:(JSValue *)key{
+    return [[self currentPageDefaultes] objectForKey:[key toString]];
 }
 
--(id)getGlobleStorage:(NSString *)key{
-    return _globleDefaultes.token_objectForKey(key);
+-(id)getGlobleStorage:(JSValue *)key{
+    return _globleDefaultes.token_objectForKey([key toString]);
 }
 
 -(void)setStorage:(JSValue *)dicValue{
