@@ -129,8 +129,7 @@
     [alertController addAction:([UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         completionHandler();
     }])];
-    
-    UIViewController *controller = (UIViewController *)[TokenHybridOrganizer sharedOrganizer].currentViewController;
+    UIViewController *controller = [UIApplication sharedApplication].keyWindow.rootViewController;
     [controller presentViewController:alertController animated:YES completion:nil];
 }
 
@@ -142,7 +141,7 @@
     [alertController addAction:([UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         completionHandler(YES);
     }])];
-    UIViewController *controller = (UIViewController *)[TokenHybridOrganizer sharedOrganizer].currentViewController;
+    UIViewController *controller = [UIApplication sharedApplication].keyWindow.rootViewController;
     [controller presentViewController:alertController animated:YES completion:nil];
 }
 
@@ -159,7 +158,7 @@
         completionHandler(strongController.textFields[0].text?:@"");
     }])];
     
-    UIViewController *controller = (UIViewController *)[TokenHybridOrganizer sharedOrganizer].currentViewController;
+    UIViewController *controller = [UIApplication sharedApplication].keyWindow.rootViewController;
     [controller presentViewController:alertController animated:YES completion:nil];
 }
 
