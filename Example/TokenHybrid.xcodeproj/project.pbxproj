@@ -281,21 +281,21 @@
 		9B7129701FDFCC0C004BB573 /* TokenExtension */ = {
 			isa = PBXGroup;
 			children = (
-				9B71297B1FDFCC0C004BB573 /* UIColor+SSRender.h */,
+				9B7129791FDFCC0C004BB573 /* TokenExtensionHeader.h */,
 				9B7129711FDFCC0C004BB573 /* UIColor+Token.h */,
+				9B7129781FDFCC0C004BB573 /* UIColor+Token.m */,
+				9B71297B1FDFCC0C004BB573 /* UIColor+SSRender.h */,
 				9B7129721FDFCC0C004BB573 /* UIColor+SSRender.m */,
+				9B71297A1FDFCC0C004BB573 /* NSUserDefaults+Token.h */,
 				9B7129731FDFCC0C004BB573 /* NSUserDefaults+Token.m */,
 				9B7129741FDFCC0C004BB573 /* UIView+Token.h */,
+				9B71297C1FDFCC0C004BB573 /* UIView+Token.m */,
+				9B71297F1FDFCC0C004BB573 /* UIViewController+Token.h */,
 				9B7129751FDFCC0C004BB573 /* UIViewController+Token.m */,
+				9B71297D1FDFCC0C004BB573 /* NSString+Token.h */,
 				9B7129761FDFCC0C004BB573 /* NSString+Token.m */,
 				9B7129771FDFCC0C004BB573 /* Collection+Token.h */,
-				9B7129781FDFCC0C004BB573 /* UIColor+Token.m */,
-				9B7129791FDFCC0C004BB573 /* TokenExtensionHeader.h */,
-				9B71297A1FDFCC0C004BB573 /* NSUserDefaults+Token.h */,
-				9B71297C1FDFCC0C004BB573 /* UIView+Token.m */,
-				9B71297D1FDFCC0C004BB573 /* NSString+Token.h */,
 				9B71297E1FDFCC0C004BB573 /* Collection+Token.m */,
-				9B71297F1FDFCC0C004BB573 /* UIViewController+Token.h */,
 			);
 			path = TokenExtension;
 			sourceTree = "<group>";

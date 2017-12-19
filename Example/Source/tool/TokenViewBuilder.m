@@ -241,8 +241,6 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
         NSArray <TokenXMLNode *>* scriptsNodes = [node getElementsByTagName:@"script"];
         self.styleAndLinkNodeCount             = linkNodes.count + styleNodes.count;
         self.scriptNodeCount                   = scriptsNodes.count;
-        [self addObserver:self forKeyPath:@"styleAndLinkNodeCount" options:(NSKeyValueObservingOptionNew) context:nil];
-        [self addObserver:self forKeyPath:@"scriptNodeCount" options:(NSKeyValueObservingOptionNew) context:nil];
         [self handleLinkNodes:linkNodes];
         [self handleStyleNodes:styleNodes];
         [self handleScriptNodes:scriptsNodes];
@@ -343,10 +341,12 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
                     [_document addJavaScript:js];
                 }
                 self.scriptNodeCount -= 1;
+                [self checkNodeCount];
                 return js;
             })
             .finish(nil, ^(TokenNetworking *netWorkingObj, NSError *error) {
                 self.scriptNodeCount -= 1;
+                [self checkNodeCount];
                 HybridLog(@"javaScript脚本下载错误 %@",error);
                 [_document addFailedScriptURL:absoluteURL];
             });
@@ -361,18 +361,12 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
 }
 
 #pragma mark - kvo
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
-    if ([keyPath isEqualToString:@"styleAndLinkNodeCount"]) {
-        if (self.styleAndLinkNodeCount == 0) {
-            [self startApplyCSSToView];
-            [self removeObserver:self forKeyPath:@"styleAndLinkNodeCount"];
-        }
+-(void)checkNodeCount{
+    if (self.styleAndLinkNodeCount == 0) {
+        [self startApplyCSSToView];
     }
-    else if ([keyPath isEqualToString:@"scriptNodeCount"]) {
-        if (self.scriptNodeCount == 0) {
-            [self startRunScript];
-            [self removeObserver:self forKeyPath:@"scriptNodeCount"];
-        }
+    if (self.scriptNodeCount == 0) {
+        [self startRunScript];
     }
 }
 
