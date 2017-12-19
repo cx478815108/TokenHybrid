@@ -10,5 +10,6 @@
 
 @interface TokenHybridRenderView : TokenPureComponent
 @property(nonatomic ,weak) UIViewController *associatedController;
-@property(nonatomic, copy) NSString *htmlURL;
+@property(nonatomic, copy) NSString         *sourceURL;
+-(void)buildViewWithSourceURL:(NSString *)url;
 @end
