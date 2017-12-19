@@ -157,6 +157,7 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
     }
 
     self.jsContext[@"document"] = self.document;
+    self.document.jsContext     = self.jsContext;
     if ([self.delegate respondsToSelector:@selector(viewBuilderWillRunScript)]) {
         [self.delegate viewBuilderWillRunScript];
     }
@@ -190,7 +191,9 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
     if (_jsContext) {
         //缓存更新，新的HTML里面可能更新了JS，需要重置JSContext,再运行JS语句
         _jsContext[@"document"] = nil;
+        id delegate = _jsContext.delegate;
         _jsContext = [[TokenJSContext alloc] init];
+        _jsContext.delegate = delegate;
     }
 }
 
@@ -356,6 +359,7 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
                 [_document addJavaScript:obj.innerText];
             }
             self.scriptNodeCount -= 1;
+            [self checkNodeCount];
         }
     }];
 }
@@ -438,10 +442,11 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
 }
 
 -(void)startRunScript{
-    if (self.scriptNodeCount || _parserEnd == NO) {
+    if (self.scriptNodeCount !=0 || _parserEnd == NO) {
         return;
     }
     self.jsContext[@"document"] = self.document;
+    self.document.jsContext     = self.jsContext;
     dispatch_async(dispatch_get_main_queue(), ^{
         if ([self.delegate respondsToSelector:@selector(viewBuilderWillRunScript)]) {
             [self.delegate viewBuilderWillRunScript];
