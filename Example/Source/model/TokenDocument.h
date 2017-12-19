@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class TokenXMLNode;
+@class TokenXMLNode,TokenJSContext;
 @interface TokenDocument : NSObject <NSSecureCoding>
 @property(nonatomic ,copy  ) NSString     *html;
 @property(nonatomic ,copy  ) NSString     *sourceURL;
@@ -22,6 +22,9 @@
 @property(nonatomic ,weak) TokenXMLNode *headNode;
 @property(nonatomic ,weak) TokenXMLNode *titleNode;
 @property(nonatomic ,weak) TokenXMLNode *navigationBarNode;
+
+@property(nonatomic ,weak) TokenJSContext *jsContext;
+
 -(void)addCSSRuels:(NSDictionary *)rules;
 -(void)addJavaScript:(NSString *)script;
 -(void)addFailedCSSURL:(NSString *)url;
