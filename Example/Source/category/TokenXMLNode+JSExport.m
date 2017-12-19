@@ -21,10 +21,8 @@
 #import "TokenWebViewComponent.h"
 #import "TokenPageControl.h"
 
-#import "TokenHybridOrganizer.h"
 #import "TokenHybridRenderController.h"
 #import "TokenJSContext.h"
-#import "TokenViewBuilder.h"
 
 #import "JSValue+Token.h"
 #import "UIView+Token.h"
@@ -103,30 +101,34 @@
 -(void)pushNavigatorWithURL:(NSString *)htmlURL extension:(JSValue *)value{
     if (htmlURL && htmlURL.length) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            TokenHybridRenderController *currentControlelr = [TokenHybridOrganizer sharedOrganizer].currentViewController;
+            
+            UIViewController *currentController = [self.jsContext getContainerController];
             TokenHybridRenderController *nextController = [[TokenHybridRenderController alloc] initWithHTMLURL:htmlURL];
-            nextController.previousController = currentControlelr;
             if (![value token_isNilObject]) {
                 NSDictionary *extension = [value toObject];
                 if ([extension isKindOfClass:[NSDictionary class]]) {
                     nextController.extension = extension;
                 }
+                if ([currentController isKindOfClass:[TokenHybridRenderController class]]) {
+                    nextController.previousController = (TokenHybridRenderController *)currentController;
+                }
             }
-            [currentControlelr.navigationController pushViewController:nextController animated:YES];
+            [currentController.navigationController pushViewController:nextController animated:YES];
+            
         });
     }
 }
 
 -(void)popNavigator{
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIViewController *currentControlelr = [TokenHybridOrganizer sharedOrganizer].currentViewController;
+        UIViewController *currentControlelr = [self.jsContext getContainerController];
         [currentControlelr.navigationController popViewControllerAnimated:YES];
     });
 }
 
 -(void)setTitle:(NSString *)title{
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIViewController *currentControlelr = [TokenHybridOrganizer sharedOrganizer].currentViewController;
+        UIViewController *currentControlelr = [self.jsContext getContainerController];
         currentControlelr.title = title;
     });
 }
@@ -321,22 +323,22 @@
 }
 
 -(void)setJSOnHeaderRefresh:(JSValue *)value{
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onHeaderRefresh = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 -(void)setJSOnFooterRefresh:(JSValue *)value{
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onFooterRefresh = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 -(void)setJSOnScroll:(JSValue *)value{
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.didScroll = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 -(void)setJSOnEndDecelerating:(JSValue *)value{
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.didEndDecelerating = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
@@ -344,7 +346,7 @@
 
 @implementation TokenButtonNode (Button)
 -(void)setJSOnClick:(JSValue *)clickValue{
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:clickValue];
+    [(TokenJSContext *)clickValue.context keepEventValueAlive:clickValue];
     self.onClick = [clickValue token_isNilObject]?nil:[JSManagedValue managedValueWithValue:clickValue andOwner:self];
 }
 
@@ -438,7 +440,7 @@
 -(void)setJSOnClick:(JSValue *)clickValue{
     TokenImageComponent *imageView = self.associatedView;
     [imageView addTapGestureRecognizer];
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:clickValue];
+    [(TokenJSContext *)clickValue.context keepEventValueAlive:clickValue];
     self.onClick = [clickValue token_isNilObject]?nil:[JSManagedValue managedValueWithValue:clickValue andOwner:self];
 }
 
@@ -449,7 +451,7 @@
 -(void)setJSOnClick:(JSValue *)clickValue{
     TokenImageComponent *imageView = self.associatedView;
     [imageView addTapGestureRecognizer];
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:clickValue];
+    [(TokenJSContext *)clickValue.context keepEventValueAlive:clickValue];
     self.onClick = [clickValue token_isNilObject]?nil:[JSManagedValue managedValueWithValue:clickValue andOwner:self];
 }
 
@@ -568,28 +570,28 @@
 }
 
 - (void)setJSKeyBoardReturn:(JSValue *)value {
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onKeyBoardReturn = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 - (void)setJSOnBeginEditing:(JSValue *)value {
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onBeginEditing = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 -(void)setJSClearClick:(JSValue *)value{
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onClearClick = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 - (void)setJSOnEndEditing:(JSValue *)value {
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onEndEditing = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 
 - (void)setJSOnTextChange:(JSValue *)value {
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onTextChange = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
@@ -643,24 +645,24 @@
 }
 
 - (void)setJSKeyBoardReturn:(JSValue *)value {
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onKeyBoardReturn = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 -(void)setJSClearClick:(JSValue *)value{}
 
 - (void)setJSOnBeginEditing:(JSValue *)value {
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onBeginEditing = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 - (void)setJSOnEndEditing:(JSValue *)value {
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onEndEditing = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 - (void)setJSOnTextChange:(JSValue *)value {
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onTextChange = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
@@ -740,24 +742,24 @@
 }
 
 - (void)setJSSearchButtonClick:(JSValue *)value {
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onSearchButtonClick = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 - (void)setJSOnBeginEditing:(JSValue *)value {
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onBeginEditing = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 
 - (void)setJSOnEndEditing:(JSValue *)value {
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onBeginEditing = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 
 - (void)setJSOnTextChange:(JSValue *)value {
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onTextChange = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
@@ -777,7 +779,7 @@
 }
 
 -(void)setJSOnClick:(JSValue *)value{
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onClick = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
@@ -798,7 +800,7 @@
 }
 
 -(void)setJSOnClick:(JSValue *)value{
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onClick = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
@@ -813,12 +815,12 @@
 @implementation TokenWebViewNode (WebView)
 
 -(void)setJSOnHeaderRefresh:(JSValue *)value{
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onHeaderRefresh = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 -(void)setJSOnFooterRefresh:(JSValue *)value{
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onFooterRefresh = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
@@ -866,30 +868,30 @@
 }
 
 - (void)setJSOnFailLoad:(JSValue *)value {
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onFailLoad = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 
 - (void)setJSOnFinish:(JSValue *)value {
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onFinish= [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 - (void)setJSOnReceiveContent:(JSValue *)value {
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onReceiveContent = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 
 - (void)setJSOnReceiveJSMessage:(JSValue *)value {
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onReceiveJSMessage = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 
 - (void)setJSOnStartLoad:(JSValue *)value {
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onStartLoad = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
@@ -969,7 +971,7 @@
 }
 
 -(void)setJSOnClick:(JSValue *)value{
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onClick = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
@@ -1066,22 +1068,22 @@
 }
 
 -(void)setJSOnHeaderRefresh:(JSValue *)value{
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onHeaderRefresh = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 -(void)setJSOnFooterRefresh:(JSValue *)value{
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onFooterRefresh = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 -(void)setJSOnScroll:(JSValue *)value{
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.didScroll = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
 -(void)setJSOnEndDecelerating:(JSValue *)value{
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.didEndDecelerating = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
@@ -1090,7 +1092,7 @@
 
 @implementation TokenDotsNode (Dots)
 -(void)setOnIndexChange:(JSValue *)value{
-    [[TokenHybridOrganizer sharedOrganizer].currentViewBuilder.jsContext keepEventValueAlive:value];
+    [(TokenJSContext *)value.context keepEventValueAlive:value];
     self.onClick = [value token_isNilObject]?nil:[JSManagedValue managedValueWithValue:value andOwner:self];
 }
 
