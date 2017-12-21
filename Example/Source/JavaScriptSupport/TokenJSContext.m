@@ -121,6 +121,23 @@
     return viewController;
 }
 
+-(Class)getViewPushedControllerClass{
+    if ([self.delegate respondsToSelector:@selector(contextGetAssociateContext)]) {
+        TokenAssociateContext *context = [self.delegate contextGetAssociateContext];
+        if (context.currentAssociateView) {
+            return context.associateViewPushControllerClass;
+        }
+        else {
+            UIViewController *controller = [self.delegate contextGetAssociateContext].currentAssociateController;
+            if ([controller isKindOfClass:[TokenHybridRenderController class]]) {
+                return [controller class];
+            }
+            return [TokenHybridRenderController class];
+        }
+    }
+    return [TokenHybridRenderController class];
+}
+
 -(NSUserDefaults *)getCurrentPageUserDefaults;{
     if ([self.delegate respondsToSelector:@selector(contextGetAssociateContext)]) {
         return [self.delegate contextGetAssociateContext].currentAssociateViewBuilder.currentPageDefaults;

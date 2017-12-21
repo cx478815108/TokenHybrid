@@ -17,24 +17,39 @@
 @interface TokenHybridRenderView() <TokenViewBuilderDelegate,TokenJSContextDelegate>
 @property(nonatomic ,strong) TokenViewBuilder      *viewBuilder;
 @property(nonatomic ,strong) TokenAssociateContext *associateContext;
+@property(nonatomic ,assign) Class                  cachedClass;
 @end
 
 @implementation TokenHybridRenderView
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.cachedClass = NSClassFromString(@"TokenHybridRenderController");
+    }
+    return self;
+}
 
 #pragma mark - TokenJSContextDelegate
 -(TokenAssociateContext *)contextGetAssociateContext{
     if (_associateContext == nil) {
         _associateContext = [[TokenAssociateContext alloc] init];
     }
-    _associateContext.currentAssociateView        = self;
-    _associateContext.currentAssociateViewBuilder = self.viewBuilder;
+    _associateContext.currentAssociateView             = self;
+    _associateContext.currentAssociateViewBuilder      = self.viewBuilder;
+    _associateContext.associateViewPushControllerClass = self.cachedClass;
     return _associateContext;
 }
 
 #pragma mark - TokenViewBuilderDelegate
-
--(void)buildViewWithSourceURL:(NSString *)url{
+-(void)buildViewWithSourceURL:(NSString *)url
+      containerViewController:(UIViewController *)controller
+  childRenderControlllerClass:(__unsafe_unretained Class)childClass{
+    self.associatedController = controller;
     [self.viewBuilder buildViewWithSourceURL:url];
+    if ([childClass isSubclassOfClass:NSClassFromString(@"TokenHybridRenderController")]) {
+        self.cachedClass = childClass;
+    }
 }
 
 -(void)viewBuilder:(TokenViewBuilder *)viewBuilder didFetchTitle:(NSString *)title{

@@ -7,9 +7,13 @@
 //
 
 #import "TokenPureComponent.h"
+#import "TokenViewBuilder.h"
+#import "TokenJSContext.h"
 
-@interface TokenHybridRenderView : TokenPureComponent
+@interface TokenHybridRenderView : TokenPureComponent <TokenViewBuilderDelegate,TokenJSContextDelegate>
 @property(nonatomic ,weak) UIViewController *associatedController;
 @property(nonatomic, copy) NSString         *sourceURL;
--(void)buildViewWithSourceURL:(NSString *)url;
+-(void)buildViewWithSourceURL:(NSString *)url
+      containerViewController:(UIViewController *)controller
+  childRenderControlllerClass:(__unsafe_unretained Class)childClass;
 @end

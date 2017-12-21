@@ -21,6 +21,7 @@
 @property(nonatomic ,weak) id <TokenJSContextDelegate> delegate;
 -(UIViewController *)getContainerController;
 -(NSUserDefaults *)getCurrentPageUserDefaults;
+-(Class)getViewPushedControllerClass;
 -(void)keepEventValueAlive:(JSValue *)value;
 -(void)pageShow;
 -(void)pageClose;

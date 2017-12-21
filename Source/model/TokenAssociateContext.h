@@ -10,7 +10,8 @@
 
 @class TokenHybridRenderController,TokenHybridRenderView,TokenJSContext,TokenViewBuilder;
 @interface TokenAssociateContext : NSObject
-@property(nonatomic ,weak) TokenHybridRenderController *currentAssociateController;
-@property(nonatomic ,weak) TokenHybridRenderView       *currentAssociateView;
-@property(nonatomic ,weak) TokenViewBuilder            *currentAssociateViewBuilder;
+@property(nonatomic ,weak  ) TokenHybridRenderController *currentAssociateController;
+@property(nonatomic ,weak  ) TokenHybridRenderView       *currentAssociateView;
+@property(nonatomic ,weak  ) TokenViewBuilder            *currentAssociateViewBuilder;
+@property(nonatomic ,assign) Class                       associateViewPushControllerClass;
 @end

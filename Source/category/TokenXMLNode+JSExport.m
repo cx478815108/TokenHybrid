@@ -103,15 +103,20 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             
             UIViewController *currentController = [self.jsContext getContainerController];
-            TokenHybridRenderController *nextController = [[TokenHybridRenderController alloc] initWithHTMLURL:htmlURL];
+            TokenHybridRenderController *nextController;
+            
+            if (self.jsContext ) {
+                nextController = [[[self.jsContext getViewPushedControllerClass] alloc] initWithHTMLURL:htmlURL];
+            }
+            else {
+                nextController = [[TokenHybridRenderController alloc] initWithHTMLURL:htmlURL];
+            }
             if (![value token_isNilObject]) {
                 NSDictionary *extension = [value toObject];
                 if ([extension isKindOfClass:[NSDictionary class]]) {
                     nextController.extension = extension;
                 }
-                if ([currentController isKindOfClass:[TokenHybridRenderController class]]) {
-                    nextController.previousController = (TokenHybridRenderController *)currentController;
-                }
+                nextController.previousController = (TokenHybridRenderController *)currentController;
             }
             [currentController.navigationController pushViewController:nextController animated:YES];
             
