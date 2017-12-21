@@ -8,19 +8,27 @@
 
 #import "TokenHybridRenderView.h"
 #import "TokenHybridDefine.h"
-#import "TokenViewBuilder.h"
-#import "TokenJSContext.h"
 #import "TokenHybridConstant.h"
 #import "TokenAssociateContext.h"
 #import "NSString+Token.h"
 
-@interface TokenHybridRenderView() <TokenViewBuilderDelegate,TokenJSContextDelegate>
+@interface TokenHybridRenderView() 
 @property(nonatomic ,strong) TokenViewBuilder      *viewBuilder;
 @property(nonatomic ,strong) TokenAssociateContext *associateContext;
 @property(nonatomic ,assign) Class                  cachedClass;
 @end
 
 @implementation TokenHybridRenderView
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.cachedClass = NSClassFromString(@"TokenHybridRenderController");
+    }
+    return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
