@@ -38,6 +38,13 @@ JSExportAs(setMainTimeOut, -(void)setMainTimeOutWithCallBack:(JSValue *)callBack
 JSExportAs(setTimeOut, -(void)setTimeOutWithCallBack:(JSValue *)callBack interval:(JSValue *)interval);
 -(NSNumber *)screenWidth;
 -(NSNumber *)screenHeight;
+
+JSExportAs(showToastWithText, - (void)showToastWithText:(NSString *)textString duration:(JSValue *)duration);
+JSExportAs(getNetworkType, - (void)getNetworkType:(JSValue *)callBack);
+JSExportAs(getSystemInfo, - (void)getSystemInfo:(JSValue *)callBack);
+JSExportAs(setClipboardData, - (void)setClipboardData:(NSString *)string callBack:(JSValue *)callBack);
+JSExportAs(getClipboardData, - (void)getClipboardData:(JSValue *)callBack);
+JSExportAs(vibrate, - (void)vibrate:(JSValue *)callBack);
 @end
 
 @interface TokenTool : NSObject <TokenAPIExport>

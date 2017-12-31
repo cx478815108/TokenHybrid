@@ -60,6 +60,8 @@
 		9B7129FF1FDFCC17004BB573 /* TokenHybridConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129D31FDFCC0C004BB573 /* TokenHybridConstant.m */; };
 		9B712A001FDFCC23004BB573 /* TokenBase.js in Resources */ = {isa = PBXBuildFile; fileRef = 9B7129971FDFCC0C004BB573 /* TokenBase.js */; };
 		9B712A031FDFD28C004BB573 /* TokenHybridRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B712A021FDFD28C004BB573 /* TokenHybridRenderView.m */; };
+		C1DEB5D51FF90F80005E311E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DEB5D11FF90F7F005E311E /* Reachability.m */; };
+		C1DEB5D61FF90F80005E311E /* WToast.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DEB5D31FF90F7F005E311E /* WToast.m */; };
 		EF9C24C8E23C7CD9511D6D58 /* Pods_TokenHybrid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2097151F60668847B9E02042 /* Pods_TokenHybrid.framework */; };
 /* End PBXBuildFile section */
 
@@ -182,6 +184,10 @@
 		9B7129D31FDFCC0C004BB573 /* TokenHybridConstant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenHybridConstant.m; sourceTree = "<group>"; };
 		9B712A011FDFD28C004BB573 /* TokenHybridRenderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenHybridRenderView.h; sourceTree = "<group>"; };
 		9B712A021FDFD28C004BB573 /* TokenHybridRenderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenHybridRenderView.m; sourceTree = "<group>"; };
+		C1DEB5D11FF90F7F005E311E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		C1DEB5D21FF90F7F005E311E /* WToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WToast.h; sourceTree = "<group>"; };
+		C1DEB5D31FF90F7F005E311E /* WToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WToast.m; sourceTree = "<group>"; };
+		C1DEB5D41FF90F80005E311E /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		FB761CF93D96A72A3D3CAA0C /* Pods-TokenHybrid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokenHybrid.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TokenHybrid/Pods-TokenHybrid.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -425,6 +431,10 @@
 		9B7129C91FDFCC0C004BB573 /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				C1DEB5D41FF90F80005E311E /* Reachability.h */,
+				C1DEB5D11FF90F7F005E311E /* Reachability.m */,
+				C1DEB5D21FF90F7F005E311E /* WToast.h */,
+				C1DEB5D31FF90F7F005E311E /* WToast.m */,
 				9B7129D21FDFCC0C004BB573 /* TokenViewBuilder.h */,
 				9B7129CC1FDFCC0C004BB573 /* TokenViewBuilder.m */,
 				9B7129CB1FDFCC0C004BB573 /* TokenHybridConstant.h */,
@@ -648,12 +658,14 @@
 				9B7129F71FDFCC17004BB573 /* TokenXMLParser.m in Sources */,
 				9B7129F81FDFCC17004BB573 /* TokenCSSParser.m in Sources */,
 				9B7129F91FDFCC17004BB573 /* TokenXMLNode.m in Sources */,
+				C1DEB5D61FF90F80005E311E /* WToast.m in Sources */,
 				9B7129FA1FDFCC17004BB573 /* TokenDocument.m in Sources */,
 				9B7129FB1FDFCC17004BB573 /* TokenViewBuilder.m in Sources */,
 				9B7129FC1FDFCC17004BB573 /* TokenHybridStack.m in Sources */,
 				9B7129FD1FDFCC17004BB573 /* TokenNodeComponentRegister.m in Sources */,
 				9B7129FE1FDFCC17004BB573 /* TokenHybridOrganizer.m in Sources */,
 				9B7129FF1FDFCC17004BB573 /* TokenHybridConstant.m in Sources */,
+				C1DEB5D51FF90F80005E311E /* Reachability.m in Sources */,
 				9B69AFB41FB3117D0044AA28 /* ViewController.m in Sources */,
 				9B69AFBF1FB3117D0044AA28 /* main.m in Sources */,
 				9B69AFB11FB3117D0044AA28 /* AppDelegate.m in Sources */,

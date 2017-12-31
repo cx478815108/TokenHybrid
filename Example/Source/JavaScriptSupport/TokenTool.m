@@ -25,6 +25,9 @@
 #import <CoreLocation/CoreLocation.h>
 #import <LocalAuthentication/LocalAuthentication.h>
 
+#import "WToast.h"
+#import "Reachability.h"
+
 @interface TokenTool()<CLLocationManagerDelegate>
 @end
 
@@ -531,6 +534,78 @@
 #pragma mark - getter
 -(NSUserDefaults *)currentPageDefaultes{
     return [self.jsContext getCurrentPageUserDefaults];
+}
+
+- (void)showToastWithText:(NSString *)textString duration:(JSValue *)duration {
+    if ([duration token_isNilObject]) {
+        [WToast showWithText:textString duration:1.25 roundedCorners:true];
+        return;
+    }
+    CGFloat CGFloatDuration = [[duration toNumber] floatValue];
+    if (CGFloatDuration == 0) CGFloatDuration = 1.25;
+    [WToast showWithText:textString duration:CGFloatDuration roundedCorners:true];
+}
+
+- (void)getNetworkType:(JSValue *)callBack {
+    if (callBack == nil || [callBack isUndefined]) return;
+    NetworkStatus status = [[Reachability reachabilityForInternetConnection] currentReachabilityStatus];
+    NSString *netStatus = @"unknown";
+    switch (status) {
+        case NotReachable:
+            netStatus = @"none";
+            break;
+        case ReachableViaWiFi:
+            netStatus = @"wifi";
+            break;
+        case kReachableVia2G:
+            netStatus = @"2g";
+            break;
+        case kReachableVia3G:
+            netStatus = @"3g";
+            break;
+        case kRaechableVia4G:
+            netStatus = @"4g";
+            break;
+        default:
+            netStatus = @"unknown";
+            break;
+    }
+    [[JSManagedValue managedValueWithValue:callBack].value callWithArguments:@[netStatus]];
+}
+
+- (void)getSystemInfo:(JSValue *)callBack {
+    if (callBack == nil || [callBack isUndefined]) return;
+    NSDictionary *info = @{@"brand": @"apple",
+                           @"platform": @"ios",
+                           @"model": [UIDevice currentDevice].model,
+                           @"systemVersion": [UIDevice currentDevice].systemVersion,
+                           @"pixelRatio": @([UIScreen mainScreen].scale),
+                           @"screenWidth": @([UIScreen mainScreen].bounds.size.width),
+                           @"screenHeight": @([UIScreen mainScreen].bounds.size.height),
+                           @"language": [[NSLocale preferredLanguages] objectAtIndex:0]};
+    [[JSManagedValue managedValueWithValue:callBack].value callWithArguments:@[info]];
+}
+
+- (void)setClipboardData:(NSString *)string callBack:(JSValue *)callBack {
+    if (string == nil) return;
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    [pasteboard setString:string];
+    if (callBack == nil || [callBack isUndefined]) return;
+    [[JSManagedValue managedValueWithValue:callBack].value callWithArguments:@[@"success"]];
+}
+
+- (void)getClipboardData:(JSValue *)callBack {
+    if (callBack == nil || [callBack isUndefined]) return;
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    NSString *string = pasteboard.string;
+    if (string == nil) string = @"";
+    [[JSManagedValue managedValueWithValue:callBack].value callWithArguments:@[string]];
+}
+
+- (void)vibrate:(JSValue *)callBack {
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    if (callBack == nil || [callBack isUndefined]) return;
+    [[JSManagedValue managedValueWithValue:callBack].value callWithArguments:@[@"success"]];
 }
 
 @end
