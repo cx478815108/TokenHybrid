@@ -56,7 +56,6 @@
     }
 }
 
-
 +(void)token_enumerateViewFromRootToChildWithRootView:(UIView *)rootView
                                                 block:(UIViewEnumerateBlock)block{
     if (rootView == nil) { return;}
