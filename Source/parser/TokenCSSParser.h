@@ -19,5 +19,6 @@
                  containerViewHeight:(CGFloat)containerViewHeight;
 
 //将CSS 选择器和 node进行匹配
-+(NSSet <TokenXMLNode *> *)matchNodesWithRootNode:(TokenXMLNode *)node selector:(NSString *)selector;
++(NSSet <TokenXMLNode *> *)matchNodesWithRootNode:(TokenXMLNode *)node
+                                         selector:(NSString *)selector;
 @end

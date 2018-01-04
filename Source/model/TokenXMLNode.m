@@ -14,7 +14,6 @@
 -(instancetype)initWithCoder:(NSCoder *)aDecoder{
     if (self = [super init]) {
         _name       = [aDecoder decodeObjectOfClass:[NSString class] forKey:@"nameKey"];
-        _cachedFrame = [aDecoder decodeObjectOfClass:[NSString class] forKey:@"cachedFrameKey"];
         _innerText  = [aDecoder decodeObjectOfClass:[NSString class] forKey:@"innerTextKey"];
         _innerAttributes = [aDecoder decodeObjectOfClass:[NSDictionary class] forKey:@"innerAttributesKey"];
         _cssAttributes  = [aDecoder decodeObjectOfClass:[NSDictionary class] forKey:@"cssAttributesKey"];
@@ -29,7 +28,6 @@
 - (void)encodeWithCoder:(NSCoder *)coder
 {
     [coder encodeObject:_name       forKey:@"nameKey"];
-    [coder encodeObject:_cachedFrame forKey:@"cachedFrameKey"];
     [coder encodeObject:_innerText  forKey:@"innerTextKey"];
     [coder encodeObject:_innerAttributes forKey:@"innerAttributesKey"];
     [coder encodeObject:_cssAttributes forKey:@"cssAttributesKey"];

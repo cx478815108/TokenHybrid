@@ -10,10 +10,9 @@
 #define TokenExtensionHeader_h
 
 #import "UIView+Token.h"
-#import "UIViewController+Token.h"
 #import "UIColor+Token.h"
 #import "NSString+Token.h"
-#import "Collection+Token.h"
+
 #import "NSUserDefaults+Token.h"
 #import "UIColor+SSRender.h"
 #endif /* TokenExtensionHeader_h */

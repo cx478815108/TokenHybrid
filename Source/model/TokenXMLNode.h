@@ -22,9 +22,9 @@ typedef void(^TokenNodeComponentConfigBlock)(__kindof UIView *view);
 @property(nonatomic ,strong) NSDictionary *innerAttributes;
 @property(nonatomic ,strong) NSDictionary *innerStyleAttributes;
 @property(nonatomic ,strong) NSDictionary *cssAttributes;
-@property(nonatomic ,copy  ) NSString     *cachedFrame;
 @property(nonatomic ,strong) NSArray      <TokenXMLNode *> *childNodes;
 @property(nonatomic ,weak  ) __kindof UIView *associatedView;
+@property(nonatomic ,assign) BOOL         hasCalc; // todo-  标记需要计算calc,未完成;
 
 -(void)addChildNode:(TokenXMLNode *)childNode;
 -(void)addCSSAttributesFromDictionary:(NSDictionary *)dictionary;
