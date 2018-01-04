@@ -84,7 +84,7 @@
 -(TokenViewBuilder *)viewBuilder{
     if (_viewBuilder == nil) {
         _viewBuilder = [[TokenViewBuilder alloc] initWithBodyViewFrame:self.bounds];
-        _viewBuilder.delegate = self;
+        _viewBuilder.delegate           = self;
         _viewBuilder.jsContext.delegate = self;
     }
     return _viewBuilder;
