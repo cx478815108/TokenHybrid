@@ -176,8 +176,8 @@ qualifiedName:(NSString *)qName {
     }
     _rootNode = currentNode;
 }
-#pragma clang diagnostic pop
 
+#pragma clang diagnostic pop
 -(void)parser:(NSXMLParser *)parser
 parseErrorOccurred:(NSError *)parseError {
     _parserState = 4;
@@ -192,7 +192,6 @@ parseErrorOccurred:(NSError *)parseError {
     _parserState = 5;
     _stack = nil;
     dispatch_async(dispatch_get_main_queue(), ^{
-        
         if (_nodeContainInnerCSSStyleSet.count) {
             if ([_delegate respondsToSelector:@selector(parser:nodeContainInnerCSSStyle:)]) {
                 [_delegate parser:self nodeContainInnerCSSStyle:_nodeContainInnerCSSStyleSet];
