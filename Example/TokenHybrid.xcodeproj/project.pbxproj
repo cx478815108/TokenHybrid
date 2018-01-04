@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B4DD1CB1FFDF907004E3867 /* CustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4DD1CA1FFDF907004E3867 /* CustomViewController.m */; };
 		9B587DAC1FE8DDBB0004A863 /* TokenAssociateContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B587DAB1FE8DDBB0004A863 /* TokenAssociateContext.m */; };
 		9B69AFB11FB3117D0044AA28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFB01FB3117D0044AA28 /* AppDelegate.m */; };
 		9B69AFB41FB3117D0044AA28 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFB31FB3117D0044AA28 /* ViewController.m */; };
@@ -17,11 +18,9 @@
 		9B69AFC91FB3117D0044AA28 /* TokenHybridTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69AFC81FB3117D0044AA28 /* TokenHybridTests.m */; };
 		9B7129D41FDFCC17004BB573 /* UIColor+SSRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129721FDFCC0C004BB573 /* UIColor+SSRender.m */; };
 		9B7129D51FDFCC17004BB573 /* NSUserDefaults+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129731FDFCC0C004BB573 /* NSUserDefaults+Token.m */; };
-		9B7129D61FDFCC17004BB573 /* UIViewController+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129751FDFCC0C004BB573 /* UIViewController+Token.m */; };
 		9B7129D71FDFCC17004BB573 /* NSString+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129761FDFCC0C004BB573 /* NSString+Token.m */; };
 		9B7129D81FDFCC17004BB573 /* UIColor+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129781FDFCC0C004BB573 /* UIColor+Token.m */; };
 		9B7129D91FDFCC17004BB573 /* UIView+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B71297C1FDFCC0C004BB573 /* UIView+Token.m */; };
-		9B7129DA1FDFCC17004BB573 /* Collection+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B71297E1FDFCC0C004BB573 /* Collection+Token.m */; };
 		9B7129DB1FDFCC17004BB573 /* TokenXMLNode+JSExport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129821FDFCC0C004BB573 /* TokenXMLNode+JSExport.m */; };
 		9B7129DC1FDFCC17004BB573 /* TokenComponent+pullRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129831FDFCC0C004BB573 /* TokenComponent+pullRefresh.m */; };
 		9B7129DD1FDFCC17004BB573 /* JSValue+Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7129841FDFCC0C004BB573 /* JSValue+Token.m */; };
@@ -76,6 +75,8 @@
 /* Begin PBXFileReference section */
 		2097151F60668847B9E02042 /* Pods_TokenHybrid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TokenHybrid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67A344AA5B0106750828224A /* Pods-TokenHybrid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TokenHybrid.release.xcconfig"; path = "Pods/Target Support Files/Pods-TokenHybrid/Pods-TokenHybrid.release.xcconfig"; sourceTree = "<group>"; };
+		9B4DD1C91FFDF907004E3867 /* CustomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomViewController.h; sourceTree = "<group>"; };
+		9B4DD1CA1FFDF907004E3867 /* CustomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomViewController.m; sourceTree = "<group>"; };
 		9B587DAA1FE8DDBB0004A863 /* TokenAssociateContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenAssociateContext.h; sourceTree = "<group>"; };
 		9B587DAB1FE8DDBB0004A863 /* TokenAssociateContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenAssociateContext.m; sourceTree = "<group>"; };
 		9B69AFAC1FB3117D0044AA28 /* TokenHybrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TokenHybrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,17 +96,13 @@
 		9B7129721FDFCC0C004BB573 /* UIColor+SSRender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SSRender.m"; sourceTree = "<group>"; };
 		9B7129731FDFCC0C004BB573 /* NSUserDefaults+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Token.m"; sourceTree = "<group>"; };
 		9B7129741FDFCC0C004BB573 /* UIView+Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Token.h"; sourceTree = "<group>"; };
-		9B7129751FDFCC0C004BB573 /* UIViewController+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Token.m"; sourceTree = "<group>"; };
 		9B7129761FDFCC0C004BB573 /* NSString+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Token.m"; sourceTree = "<group>"; };
-		9B7129771FDFCC0C004BB573 /* Collection+Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Collection+Token.h"; sourceTree = "<group>"; };
 		9B7129781FDFCC0C004BB573 /* UIColor+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Token.m"; sourceTree = "<group>"; };
 		9B7129791FDFCC0C004BB573 /* TokenExtensionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenExtensionHeader.h; sourceTree = "<group>"; };
 		9B71297A1FDFCC0C004BB573 /* NSUserDefaults+Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Token.h"; sourceTree = "<group>"; };
 		9B71297B1FDFCC0C004BB573 /* UIColor+SSRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+SSRender.h"; sourceTree = "<group>"; };
 		9B71297C1FDFCC0C004BB573 /* UIView+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Token.m"; sourceTree = "<group>"; };
 		9B71297D1FDFCC0C004BB573 /* NSString+Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Token.h"; sourceTree = "<group>"; };
-		9B71297E1FDFCC0C004BB573 /* Collection+Token.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Collection+Token.m"; sourceTree = "<group>"; };
-		9B71297F1FDFCC0C004BB573 /* UIViewController+Token.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Token.h"; sourceTree = "<group>"; };
 		9B7129811FDFCC0C004BB573 /* UIView+TokenFlexLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+TokenFlexLayout.h"; sourceTree = "<group>"; };
 		9B7129821FDFCC0C004BB573 /* TokenXMLNode+JSExport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TokenXMLNode+JSExport.m"; sourceTree = "<group>"; };
 		9B7129831FDFCC0C004BB573 /* TokenComponent+pullRefresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TokenComponent+pullRefresh.m"; sourceTree = "<group>"; };
@@ -254,6 +251,8 @@
 				9B69AFBA1FB3117D0044AA28 /* LaunchScreen.storyboard */,
 				9B69AFBD1FB3117D0044AA28 /* Info.plist */,
 				9B69AFBE1FB3117D0044AA28 /* main.m */,
+				9B4DD1C91FFDF907004E3867 /* CustomViewController.h */,
+				9B4DD1CA1FFDF907004E3867 /* CustomViewController.m */,
 			);
 			path = TokenHybrid;
 			sourceTree = "<group>";
@@ -293,12 +292,8 @@
 				9B7129731FDFCC0C004BB573 /* NSUserDefaults+Token.m */,
 				9B7129741FDFCC0C004BB573 /* UIView+Token.h */,
 				9B71297C1FDFCC0C004BB573 /* UIView+Token.m */,
-				9B71297F1FDFCC0C004BB573 /* UIViewController+Token.h */,
-				9B7129751FDFCC0C004BB573 /* UIViewController+Token.m */,
 				9B71297D1FDFCC0C004BB573 /* NSString+Token.h */,
 				9B7129761FDFCC0C004BB573 /* NSString+Token.m */,
-				9B7129771FDFCC0C004BB573 /* Collection+Token.h */,
-				9B71297E1FDFCC0C004BB573 /* Collection+Token.m */,
 			);
 			path = TokenExtension;
 			sourceTree = "<group>";
@@ -611,11 +606,9 @@
 			files = (
 				9B7129D41FDFCC17004BB573 /* UIColor+SSRender.m in Sources */,
 				9B7129D51FDFCC17004BB573 /* NSUserDefaults+Token.m in Sources */,
-				9B7129D61FDFCC17004BB573 /* UIViewController+Token.m in Sources */,
 				9B7129D71FDFCC17004BB573 /* NSString+Token.m in Sources */,
 				9B7129D81FDFCC17004BB573 /* UIColor+Token.m in Sources */,
 				9B7129D91FDFCC17004BB573 /* UIView+Token.m in Sources */,
-				9B7129DA1FDFCC17004BB573 /* Collection+Token.m in Sources */,
 				9B7129DB1FDFCC17004BB573 /* TokenXMLNode+JSExport.m in Sources */,
 				9B7129DC1FDFCC17004BB573 /* TokenComponent+pullRefresh.m in Sources */,
 				9B7129DD1FDFCC17004BB573 /* JSValue+Token.m in Sources */,
@@ -653,6 +646,7 @@
 				9B7129FC1FDFCC17004BB573 /* TokenHybridStack.m in Sources */,
 				9B7129FD1FDFCC17004BB573 /* TokenNodeComponentRegister.m in Sources */,
 				9B7129FE1FDFCC17004BB573 /* TokenHybridOrganizer.m in Sources */,
+				9B4DD1CB1FFDF907004E3867 /* CustomViewController.m in Sources */,
 				9B7129FF1FDFCC17004BB573 /* TokenHybridConstant.m in Sources */,
 				9B69AFB41FB3117D0044AA28 /* ViewController.m in Sources */,
 				9B69AFBF1FB3117D0044AA28 /* main.m in Sources */,
