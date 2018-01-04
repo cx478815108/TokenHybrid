@@ -49,9 +49,16 @@
     }
     NSString *image = d[@"src"];
     if (image){
-        [self sd_setImageWithURL:[NSURL URLWithString:image] completed:nil];
+        self.image = nil;
         [self sd_setShowActivityIndicatorView:YES];
+        [self sd_addActivityIndicator];
         [self sd_setIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [[SDWebImageManager sharedManager] loadImageWithURL:[NSURL URLWithString:image] options:0
+                                                   progress:nil
+                                                  completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+                                                      self.image = image;
+                                                      [self sd_removeActivityIndicator];
+                                                  }];
     }
 }
 @end

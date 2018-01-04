@@ -44,6 +44,10 @@
     if (self.navigationController.navigationBar.translucent == NO) {
         bodyHeight           -= [[UIApplication sharedApplication] statusBarFrame].size.height + 44.0f;
     }
+    if (self.tabBarController.tabBar && self.navigationController.childViewControllers.count == 1) {
+        CGFloat tabbarHeight = CGRectGetHeight(self.tabBarController.tabBar.frame);
+        bodyHeight           -= self.tabBarController.tabBar.translucent?0:tabbarHeight;
+    }
     CGRect bodyFrame          = CGRectMake(0, originY, CGRectGetWidth(self.view.frame),bodyHeight);
     self.viewBuilder          = [[TokenViewBuilder alloc] initWithBodyViewFrame:bodyFrame];
     self.viewBuilder.delegate = self;
