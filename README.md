@@ -46,10 +46,23 @@ Thesr is no doubt that `TokenHybrid` will increase the flexibility of developmen
 ## How to use
 
 ```
+
+ViewController.m
+
 - (IBAction)start:(id)sender {
     NSString *url = @"your html url";   
     TokenHybridRenderController *obj = [[TokenHybridRenderController alloc] initWithHTMLURL:url];
     [self.navigationController pushViewController:obj animated:YES];
+}
+
+ ----------or---------- 
+
+- (IBAction)start:(id)sender {
+    self.renderView = [[TokenHybridRenderView alloc] initWithFrame:newRect];
+    self.renderView.backgroundColor = [UIColor darkGrayColor];
+    [self.view addSubview:self.renderView];
+    NSString *url = @"your html url";
+    [self.renderView buildViewWithSourceURL:url containerViewController:self childRenderControlllerClass:nil];
 }
 ```
 
@@ -106,10 +119,23 @@ please see Document
 ## 如何接入
 
 ```
+
+ViewController.m
+
 - (IBAction)start:(id)sender {
     NSString *url = @"your html url";   
     TokenHybridRenderController *obj = [[TokenHybridRenderController alloc] initWithHTMLURL:url];
     [self.navigationController pushViewController:obj animated:YES];
+}
+
+ ----------or---------- 
+
+- (IBAction)start:(id)sender {
+    self.renderView = [[TokenHybridRenderView alloc] initWithFrame:newRect];
+    self.renderView.backgroundColor = [UIColor darkGrayColor];
+    [self.view addSubview:self.renderView];
+    NSString *url = @"your html url";
+    [self.renderView buildViewWithSourceURL:url containerViewController:self childRenderControlllerClass:nil];
 }
 ```
 
