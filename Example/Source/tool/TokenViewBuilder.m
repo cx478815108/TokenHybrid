@@ -41,6 +41,7 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
     BOOL              _pageRefreshed;
     BOOL              _existCache;
     NSSet            *_nodeContainInnerCSSStyleSet;
+    BOOL              _isWorking;
 }
 
 +(void)initialize{
@@ -82,11 +83,14 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
         [self refreshViewExistCache:NO];
     }
 }
+
 -(void)refreshView{
-    [self refreshViewExistCache:_existCache];
+    if (_isWorking) return;
+    [self refreshViewExistCache:YES];
 }
 
 -(void)refreshViewExistCache:(BOOL)existCache{
+    _isWorking = YES;
     TokenNetworking.networking()
     .sendURL(^NSURL *(TokenNetworking *netWorking) {
         return [NSURL URLWithString:self.document.sourceURL];
@@ -105,6 +109,7 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
         return html;
     })
     .finish(^(TokenNetworking *netWorkingObj, NSURLSessionTask *task, NSString *responsedObj) {
+        _isWorking = NO;
         if (responsedObj == nil || responsedObj.length == 0) return ;
         NSString *html = responsedObj;
         if (existCache) { //缓存存在，指纹对比
@@ -124,6 +129,7 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
             [self buildViewWithHTML:responsedObj];
         }
     }, ^(TokenNetworking *netWorkingObj, NSError *error) {
+        _isWorking = NO;
         if ([self.delegate respondsToSelector:@selector(parserErrorOccurred:)]) {
             [self.delegate viewBuilder:self parserErrorOccurred:error];
         }
@@ -150,8 +156,11 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
     if ([self.delegate respondsToSelector:@selector(viewBuilder:didCreatNavigationBarNode:)]) {
         [self.delegate viewBuilder:self didCreatNavigationBarNode:document.navigationBarNode];
     }
-    _bodyView = [self recoverViewFromNode:document.bodyNode];
-    [_bodyView didApplyAllAttributs];
+    _bodyView  = [self recoverViewFromNode:document.bodyNode];
+    [_bodyView token_updateAppearanceWithCSSAttributes:document.bodyNode.cssAttributes shouldLayout:YES];
+    [_bodyView token_updateAppearanceWithCSSAttributes:document.bodyNode.innerStyleAttributes shouldLayout:YES];
+    [_bodyView token_updateAppearanceWithNormalDictionary:document.bodyNode.innerAttributes];
+    [_bodyView applyFlexLayout];
     if ([self.delegate respondsToSelector:@selector(viewBuilder:didCreatBodyView:)]) {
         [self.delegate viewBuilder:self didCreatBodyView:_bodyView];
     }
@@ -171,12 +180,9 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
     view.associatedNode = node;
     node.associatedView = view;
     
-    [view token_updateAppearanceWithCSSAttributes:node.cssAttributes shouldLayout:NO];
-    [view token_updateAppearanceWithCSSAttributes:node.innerStyleAttributes shouldLayout:NO];
+    [view token_updateAppearanceWithCSSAttributes:node.cssAttributes shouldLayout:YES];
+    [view token_updateAppearanceWithCSSAttributes:node.innerStyleAttributes shouldLayout:YES];
     [view token_updateAppearanceWithNormalDictionary:node.innerAttributes];
-    if (node.cachedFrame) {
-        view.frame = CGRectFromString(node.cachedFrame);
-    }
     [node.childNodes enumerateObjectsUsingBlock:^(TokenXMLNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         UIView *subview = [self recoverViewFromNode:obj];
         [view addSubview:subview];
@@ -185,6 +191,10 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
 }
 
 #pragma mark - TokenXMLParserDelegate
+
+/**
+ 从此处开始解析HTML并构建View层级视图，NSXMLParser会渐进解析HTML，解析一个标签，会执行相应的动作
+ */
 -(void)parserDidStart{
     HybridLog(@"parserDidStart");
     _viewStack = [[TokenHybridStack alloc] init];
@@ -197,20 +207,29 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
     }
 }
 
+/**
+ 1. 开始解析body标签内部了，只将UI部分限制在body内部
+ 2. body将会作为一个容器，并且被记录下来
+ */
 -(void)parser:(TokenXMLParser *)parser didStartNodeWithinBodyNode:(TokenXMLNode *)node{
     TokenPureComponent *view = [UIView token_produceViewWithNode:node];
     if (view == nil) {
         view = [[TokenPureComponent alloc] init];
     }
+    //将node和view一一关联，方便js通过node 控制原生视图
     view.associatedNode = node;
     node.associatedView = view;
     [_viewStack push:view];
     
     if ([node.name isEqualToString:@"body"]) {
+        //记录一
         _bodyView = view;
     }
 }
 
+/**
+ 当一个标签解析结束，可以调整UIView的层级结构
+ */
 -(void)parser:(TokenXMLParser *)parser didEndNodeWithinBodyNode:(TokenXMLNode *)node{
     //在End调整UIView层次结构
     UIView *currentView = [_viewStack pop];
@@ -218,6 +237,9 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
     [parentView addSubview:currentView];
 }
 
+/**
+ 解析到了标题
+ */
 -(void)parser:(TokenXMLParser *)parser didCreatTitleNode:(TokenXMLNode *)node{
     self.jsContext.name = node.innerText;
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -235,13 +257,17 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
     });
 }
 
--(void)parser:(TokenXMLParser *)parser didCreatHeadNode:(TokenXMLNode *)node{    
+/**
+ 整个head标签解析完毕，这时候应该分析里面的link，style，script标签，并且做相应的事
+ */
+-(void)parser:(TokenXMLParser *)parser didCreatHeadNode:(TokenXMLNode *)node{
     dispatch_async(kTokenCSSProcessQueue, ^{
         self.document.scripts  = @[];
         self.document.cssRules = @[];
         NSArray <TokenXMLNode *>* linkNodes    = [node getElementsByTagName:@"link"];
         NSArray <TokenXMLNode *>* styleNodes   = [node getElementsByTagName:@"style"];
         NSArray <TokenXMLNode *>* scriptsNodes = [node getElementsByTagName:@"script"];
+        //记录一共有多少个这样的标签，方便统计，当下载完成后开始执行相应的动作
         self.styleAndLinkNodeCount             = linkNodes.count + styleNodes.count;
         self.scriptNodeCount                   = scriptsNodes.count;
         [self handleLinkNodes:linkNodes];
@@ -255,6 +281,7 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
 }
 
 -(void)parser:(TokenXMLParser *)parser nodeContainInnerCSSStyle:(NSSet *)nodes{
+    //这个方法返回HTML里面全部<style>写的CSS，单独拿出来记录
     _nodeContainInnerCSSStyleSet = nodes;
 }
 
@@ -265,6 +292,7 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
             [self.delegate viewBuilder:self parserErrorOccurred:error];
         });
     }
+    _isWorking = NO;
     _document  = nil;
     _jsContext = nil;
     [self releaseObj];
@@ -276,9 +304,14 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
     [self startApplyCSSToView];
     [self startRunScript];
     [self releaseObj];
+    _isWorking = NO;
 }
 
 #pragma mark - handle
+
+/**
+ 处理link标签,下载CSS，并解析，匹配到相应的nodes上
+ */
 -(void)handleLinkNodes:(NSArray <TokenXMLNode *>*)nodes{
     [nodes enumerateObjectsUsingBlock:^(TokenXMLNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSString *linkURL = obj.innerAttributes[@"href"];
@@ -289,8 +322,9 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
         TokenNetworking.networking()
         .sendRequest(^NSURLRequest *(TokenNetworking *netWorking) {
             return NSMutableURLRequest.token_requestWithURL(absoluteLinkURL)
-            .token_setPolicy(NSURLRequestReloadIgnoringLocalCacheData);
-        }).transform(^id(TokenNetworking *netWorking, id responsedObj) {
+                                      .token_setPolicy(NSURLRequestReloadIgnoringLocalCacheData);
+        })
+        .transform(^id(TokenNetworking *netWorking, id responsedObj) {
             HybridLog(@"CSS文件下载完成");
             NSString     *cssText = [netWorking HTMLTextSerializeWithData:responsedObj];
             CGFloat      width    = self.bodyViewFrame.size.width;
@@ -335,7 +369,7 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
             TokenNetworking.networking()
             .sendRequest(^NSURLRequest *(TokenNetworking *netWorking) {
                 return NSMutableURLRequest.token_requestWithURL(absoluteURL)
-                .token_setPolicy(NSURLRequestReloadIgnoringLocalCacheData);
+                                          .token_setPolicy(NSURLRequestReloadIgnoringLocalCacheData);
             })
             .transform(^id(TokenNetworking *netWorking, id responsedObj) {
                 HybridLog(@"JS文件下载完成");
@@ -364,7 +398,7 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
     }];
 }
 
-#pragma mark - kvo
+#pragma mark -
 -(void)checkNodeCount{
     if (self.styleAndLinkNodeCount == 0) {
         [self startApplyCSSToView];
@@ -433,7 +467,9 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
 }
 
 -(void)CSSApplyFinish{
-    [_bodyView token_updateAppearanceWithCSSAttributes:_document.bodyNode.cssAttributes];
+    [_bodyView token_updateAppearanceWithCSSAttributes:self.document.bodyNode.cssAttributes shouldLayout:YES];
+    [_bodyView token_updateAppearanceWithCSSAttributes:self.document.bodyNode.innerStyleAttributes shouldLayout:YES];
+    [_bodyView token_updateAppearanceWithNormalDictionary:self.document.bodyNode.innerAttributes];
     [_bodyView applyFlexLayout];
     if ([self.delegate respondsToSelector:@selector(viewBuilder:didCreatBodyView:)]) {
         [self.delegate viewBuilder:self didCreatBodyView:self.bodyView];
@@ -447,7 +483,8 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
     }
     self.jsContext[@"document"] = self.document;
     self.document.jsContext     = self.jsContext;
-    dispatch_async(dispatch_get_main_queue(), ^{
+    
+    dispatch_main_async_safe(^{
         if ([self.delegate respondsToSelector:@selector(viewBuilderWillRunScript)]) {
             [self.delegate viewBuilderWillRunScript];
         }
@@ -463,22 +500,12 @@ static dispatch_queue_t  kTokenCSSProcessQueue;
 }
 
 -(void)execuseSaveAction{
-    //缓存坐标信息
     if (self.document.sourceURL == nil) {
         return ;
     }
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [TokenXMLNode enumerateTreeFromRootToChildWithNode:self.document.bodyNode block:^(TokenXMLNode *node, BOOL *stop) {
-            UIView *view         = node.associatedView;
-            if (view) {
-                NSValue  *frameValue   = [view valueForKeyPath:@"frame"];
-                NSString *frameString  = NSStringFromCGRect([frameValue CGRectValue]);
-                node.cachedFrame = frameString;
-            }
-        }];
-        
-        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.document];
-        NSString *cacheKey         = NSString.token_md5(self.document.sourceURL);
+        NSData   *data     = [NSKeyedArchiver archivedDataWithRootObject:self.document];
+        NSString *cacheKey = NSString.token_md5(self.document.sourceURL);
         [self.currentPageDefaults setObject:data forKey:cacheKey];
         [self.currentPageDefaults synchronize];
     });
