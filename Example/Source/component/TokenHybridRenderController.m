@@ -37,16 +37,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (!self.hiddenTitle) {
-        self.title = @"加载中...";
-    }
+    if (!self.hiddenTitle) { self.title = @"加载中...";}
     self.view.backgroundColor = [UIColor whiteColor];
-    CGFloat bodyHeight = CGRectGetHeight(self.view.frame);
-    CGFloat originY    = self.view.bounds.origin.y;
+    CGFloat bodyHeight        = CGRectGetHeight(self.view.frame);
+    CGFloat originY           = self.view.bounds.origin.y;
     if (self.navigationController.navigationBar.translucent == NO) {
-        bodyHeight -= [[UIApplication sharedApplication] statusBarFrame].size.height + 44.0f;
+        bodyHeight           -= [[UIApplication sharedApplication] statusBarFrame].size.height + 44.0f;
     }
-    CGRect bodyFrame = CGRectMake(0, originY, CGRectGetWidth(self.view.frame),bodyHeight);
+    CGRect bodyFrame          = CGRectMake(0, originY, CGRectGetWidth(self.view.frame),bodyHeight);
     self.viewBuilder          = [[TokenViewBuilder alloc] initWithBodyViewFrame:bodyFrame];
     self.viewBuilder.delegate = self;
     [self.viewBuilder buildViewWithSourceURL:self.htmlURL];
