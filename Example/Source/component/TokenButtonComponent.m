@@ -12,7 +12,9 @@
 #import "TokenHybridConstant.h"
 #import "UIView+Attributes.h"
 #import "NSString+Token.h"
+#import <SDWebImage/UIView+WebCache.h>
 #import <SDWebImage/UIButton+WebCache.h>
+#import <SDWebImage/SDWebImageManager.h>
 
 @import JavaScriptCore;
 
@@ -110,9 +112,16 @@
         _selectedBackgroundColor = [UIColor ss_colorWithString:d[@"selectedBackgroundColor"]];
     }
     if (d[@"image"]){
-        [self sd_setImageWithURL:[NSURL URLWithString:d[@"image"]]
-                        forState:(UIControlStateNormal)
-                       completed:nil];
+        [self setImage:nil forState:UIControlStateNormal];
+        [self sd_setShowActivityIndicatorView:YES];
+        [self sd_addActivityIndicator];
+        [self sd_setIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [[SDWebImageManager sharedManager] loadImageWithURL:[NSURL URLWithString:d[@"image"]] options:0
+                                                   progress:nil
+                                                  completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+                                                      [self setImage:nil forState:UIControlStateNormal];
+                                                      [self sd_removeActivityIndicator];
+                                                  }];
     }
     if (d[@"selectedImage"]){
         [self sd_setImageWithURL:[NSURL URLWithString:d[@"selectedImage"]]
