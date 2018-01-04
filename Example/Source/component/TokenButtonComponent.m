@@ -119,7 +119,7 @@
         [[SDWebImageManager sharedManager] loadImageWithURL:[NSURL URLWithString:d[@"image"]] options:0
                                                    progress:nil
                                                   completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
-                                                      [self setImage:nil forState:UIControlStateNormal];
+                                                      [self setImage:image forState:UIControlStateNormal];
                                                       [self sd_removeActivityIndicator];
                                                   }];
     }
