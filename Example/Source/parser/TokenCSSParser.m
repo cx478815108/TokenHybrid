@@ -17,7 +17,9 @@
                            containerViewWidth:(CGFloat)containerViewWidth
                           containerViewHeight:(CGFloat)containerViewHeight
 {
-    NSMutableArray <NSString *> *ruleStringArray = [NSMutableArray arrayWithArray:attrString.token_replace(@"\t",@"").token_replace(@"px",@"").token_separator(@";")];
+    NSMutableArray <NSString *> *ruleStringArray = [NSMutableArray arrayWithArray:attrString.token_replace(@"\t",@"")
+                                                                                            .token_replace(@"px",@"")
+                                                                                            .token_separator(@";")];
     if ([ruleStringArray containsObject:@""]) {
         [ruleStringArray removeObject:@""];
     }
@@ -113,7 +115,7 @@
         selector = [selector stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     }
     //用空格分割
-    NSMutableArray *selectors = NSMutableArray.token_arrayWithArray(selector.token_separator(@" "));
+    NSMutableArray *selectors = [NSMutableArray arrayWithArray:selector.token_separator(@" ")];
     if ([selectors containsObject:@""]) {
         [selectors removeObject:@""];
     }
